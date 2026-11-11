@@ -26,6 +26,8 @@ Nếu backend tự ký C2C theo cấu hình Caresoft: sử dụng HS256 với Vo
 
 ## APNs và vòng đời token
 
+Thực hiện theo [Đăng ký app và cấu hình push trên Caresoft](ios-integration-guide.md#admin) để tạo ứng dụng, upload khóa APNs và chọn môi trường.
+
 Cấu hình khóa APNs `.p8`, Key ID, Team ID và Bundle ID ở phía server. Không đưa khóa `.p8` vào ứng dụng. Development provisioning tương ứng SDK environment `sandbox`; TestFlight/App Store tương ứng `production`.
 
 Ứng dụng nhận VoIP token từ PushKit, đăng ký sau khi phiên xác thực thành công và cập nhật khi token đổi. Backend cần ngừng định tuyến đến registration cũ khi token bị thu hồi, agent đăng xuất hoặc chuyển thiết bị.

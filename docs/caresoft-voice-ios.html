@@ -21,7 +21,15 @@ footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-si
 <li><a href="#caresoft-voice-sdk-huong-dan-tich-hop-ios">Caresoft Voice SDK — Hướng dẫn tích hợp iOS</a><ul>
 <li><a href="#1-pham-vi-kien-truc-va-trach-nhiem">1. Phạm vi, kiến trúc và trách nhiệm</a></li>
 <li><a href="#2-phieu-cau-hinh-theo-domainbuild">2. Phiếu cấu hình theo domain/build</a></li>
-<li><a href="#3-ang-ky-ung-dung-va-apns-tren-caresoft">3. Đăng ký ứng dụng và APNs trên Caresoft</a></li>
+<li><a href="#3-ang-ky-app-va-cau-hinh-push-tren-caresoft">3. Đăng ký app và cấu hình push trên Caresoft</a><ul>
+<li><a href="#31-tao-ung-dung-tren-caresoft">3.1. Tạo ứng dụng trên Caresoft</a></li>
+<li><a href="#32-chuan-bi-tren-apple-developer">3.2. Chuẩn bị trên Apple Developer</a></li>
+<li><a href="#33-ien-cau-hinh-ios-tren-caresoft">3.3. Điền cấu hình iOS trên Caresoft</a></li>
+<li><a href="#34-chon-ung-moi-truong-apns">3.4. Chọn đúng môi trường APNs</a></li>
+<li><a href="#35-sua-cau-hinh-thay-key-hoac-ngung-su-dung">3.5. Sửa cấu hình, thay key hoặc ngừng sử dụng</a></li>
+<li><a href="#36-kiem-tra-sau-cau-hinh">3.6. Kiểm tra sau cấu hình</a></li>
+</ul>
+</li>
 <li><a href="#4-cai-sdk">4. Cài SDK</a></li>
 <li><a href="#5-xcode-va-signing">5. Xcode và signing</a></li>
 <li><a href="#6-pushkit-truoc-ui">6. PushKit trước UI</a></li>
@@ -119,10 +127,126 @@ footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-si
 </tbody>
 </table>
 <p><code>environment</code> chỉ nhận <code>sandbox</code> hoặc <code>production</code>. Chọn theo provisioning của build đã ký, không suy từ <code>DEBUG</code>. Development entitlement dùng <code>development</code> nhưng SDK gửi <code>sandbox</code>; distribution dùng <code>production</code> ở cả hai.</p>
-<h2 id="3-ang-ky-ung-dung-va-apns-tren-caresoft">3. Đăng ký ứng dụng và APNs trên Caresoft</h2>
-<p>Admin tạo app trên đúng tenant/domain, ghi lại <code>appId</code>, cấu hình bundle ID chính xác và APNs VoIP credential được cấp cho app đó. Xác minh sandbox/production tương ứng build. SDK action 22 yêu cầu response chứa <code>appId</code> đúng và <code>pushConfigId</code> là số dương khi bật configured push.</p>
-<p>Khi thay key, môi trường hoặc bundle, cập nhật server rồi đăng ký lại đúng token của build; không dùng token từ app/domain khác. Khi ngừng app/agent, backend cần revoke session/token và chấm dứt routing. Không coi việc xóa local Keychain là xác nhận server đã revoke.</p>
-<p>Khởi động PushKit trong AppDelegate trước khi hiển thị giao diện.</p>
+<p><a id="admin"></a></p>
+<h2 id="3-ang-ky-app-va-cau-hinh-push-tren-caresoft">3. Đăng ký app và cấu hình push trên Caresoft</h2>
+<h3 id="31-tao-ung-dung-tren-caresoft">3.1. Tạo ứng dụng trên Caresoft</h3>
+<ol>
+<li>Đăng nhập trang quản trị trên <strong>đúng domain và môi trường</strong> của khách hàng.</li>
+<li>Vào <strong>Admin Settings → Cơ bản → Voice SDK</strong>. Tài khoản cần được cấp quyền cấu hình Voice SDK; nếu không thấy mục này, liên hệ quản trị viên để được cấp quyền.</li>
+<li>Tạo app với tên dễ nhận biết, ví dụ “Ứng dụng CSKH”; bật trạng thái <strong>Hoạt động</strong>.</li>
+<li>Lưu và sao chép <strong>App ID</strong> do Caresoft sinh. Dùng giá trị này cho <code>VoiceOptions.appId</code>; đây không phải Apple App ID, Bundle ID hay Team ID.</li>
+<li>Mở <strong>Cấu hình push</strong> của app, thêm cấu hình <strong>iOS (APNs VoIP)</strong>.</li>
+</ol>
+<h3 id="32-chuan-bi-tren-apple-developer">3.2. Chuẩn bị trên Apple Developer</h3>
+<ol>
+<li>Tạo hoặc chọn App ID có <strong>Bundle ID trùng ứng dụng iOS</strong>, ví dụ <code>com.customer.support</code>, và bật <strong>Push Notifications</strong>.</li>
+<li>Tạo APNs authentication key <code>.p8</code> có quyền gửi tới ứng dụng. Ghi lại <strong>Key ID</strong> và <strong>Team ID</strong>; lưu khóa ở nơi an toàn theo quy định tải key của Apple.</li>
+<li>Tạo hoặc cập nhật provisioning profile có capability Push Notifications. Trong Xcode, chọn đúng Apple Team và Bundle Identifier khi ký app.</li>
+<li>Bật <strong>Push Notifications</strong> và <strong>Background Modes → Voice over IP, Audio</strong> cho target ứng dụng.</li>
+</ol>
+<p>Khóa <code>.p8</code> dùng trên server để gửi APNs; không thêm khóa này vào Xcode project, gói ứng dụng hoặc Git. VoIP token được PushKit cấp trên thiết bị là giá trị khác với khóa <code>.p8</code>.</p>
+<h3 id="33-ien-cau-hinh-ios-tren-caresoft">3.3. Điền cấu hình iOS trên Caresoft</h3>
+<p>Trong <strong>Cấu hình push</strong> của app vừa tạo, điền:</p>
+<table>
+<thead>
+<tr>
+<th>Ô cấu hình</th>
+<th>Giá trị điền</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Platform</td>
+<td><strong>iOS (APNs VoIP)</strong></td>
+</tr>
+<tr>
+<td>Bundle ID</td>
+<td>Bundle Identifier của ứng dụng, ví dụ <code>com.customer.support</code></td>
+</tr>
+<tr>
+<td>Team ID</td>
+<td>Team ID của tài khoản Apple Developer sở hữu ứng dụng/key</td>
+</tr>
+<tr>
+<td>Key ID</td>
+<td>Key ID của APNs authentication key đã tạo</td>
+</tr>
+<tr>
+<td>File credentials</td>
+<td>File APNs authentication key <strong><code>.p8</code></strong> tương ứng</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td><strong><code>sandbox</code></strong> hoặc <strong><code>production</code></strong>, theo bảng bên dưới</td>
+</tr>
+<tr>
+<td>Trạng thái</td>
+<td><strong>Hoạt động</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Lưu cấu hình. Bundle ID điền là bundle gốc, <strong>không thêm <code>.voip</code></strong>; server tự dùng APNs topic <code>&lt;bundle&gt;.voip</code>. Lưu thành công chưa thay thế việc kiểm tra nhận cuộc gọi trên thiết bị thật.</p>
+<h3 id="34-chon-ung-moi-truong-apns">3.4. Chọn đúng môi trường APNs</h3>
+<table>
+<thead>
+<tr>
+<th>Bản build</th>
+<th>Entitlement <code>aps-environment</code> thực tế</th>
+<th>Environment trên Caresoft</th>
+<th>Giá trị truyền vào SDK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ký development</td>
+<td><code>development</code></td>
+<td><code>sandbox</code></td>
+<td><code>.sandbox</code></td>
+</tr>
+<tr>
+<td>Ký distribution / TestFlight / App Store</td>
+<td><code>production</code></td>
+<td><code>production</code></td>
+<td><code>.production</code></td>
+</tr>
+</tbody>
+</table>
+<p>Nếu dùng cả development và TestFlight, tạo <strong>hai cấu hình iOS</strong>, cùng Bundle ID nhưng khác environment. Chọn theo entitlement của build đã ký; không chỉ dựa vào tên Debug/Release.</p>
+<p>Trong ứng dụng, đặt <strong>cùng environment</strong> cho <code>AppPushConfig</code> khi tạo client và <code>PushRegistration</code> khi đăng ký VoIP token. Ví dụ với TestFlight:</p>
+<pre><code class="language-swift">let pushConfig = AppPushConfig(
+    applicationId: &quot;com.customer.support&quot;,
+    environment: .production
+)
+// Truyền pushConfig vào VoiceOptions khi khởi tạo client.
+
+let registration = PushRegistration(
+    token: voipToken,
+    environment: .production,
+    installationId: installationID,
+    applicationId: &quot;com.customer.support&quot;
+)
+// Đăng ký sau khi client đã xác thực thành công.
+try await client.registerPushToken(registration)
+</code></pre>
+<p>Thay Bundle ID bằng giá trị thực tế của ứng dụng. <code>voipToken</code> lấy từ PushKit; <code>installationID</code> là định danh cài đặt ổn định của app. Với development, đổi cả hai environment thành <code>.sandbox</code>.</p>
+<p>Riêng ứng dụng mẫu đọc <code>VoicePushEnvironment</code> từ Info.plist để thiết lập environment. SDK không tự đọc key này; app tích hợp cần truyền đúng các giá trị API ở trên. Xem mục 6 để khởi động PushKit trước UI và mục 9 để xử lý token sau đăng nhập.</p>
+<h3 id="35-sua-cau-hinh-thay-key-hoac-ngung-su-dung">3.5. Sửa cấu hình, thay key hoặc ngừng sử dụng</h3>
+<ul>
+<li>Giữ nguyên file credentials khi chỉ sửa metadata; upload file <code>.p8</code> mới nếu thay key.</li>
+<li>Các trường định danh cấu hình đã tạo được bảo vệ/read-only. Khi cần đổi định danh, tạo cấu hình phù hợp, cập nhật app rồi đăng nhập/đăng ký token lại.</li>
+<li>Bật cả <strong>app</strong> và <strong>cấu hình push</strong>. Cấu hình bị tắt hoặc không hợp lệ sẽ không được dùng để gửi push.</li>
+<li>Thay đổi cấu hình push có thể cần tới <strong>30 giây</strong> để có hiệu lực khi gửi cuộc gọi. Sau khi lưu, chờ khoảng thời gian này rồi kiểm tra lại.</li>
+<li>App không truyền <code>push_config_id</code>; server chọn cấu hình theo account/domain, App ID, iOS, Bundle ID và environment.</li>
+<li>Khi ngừng sử dụng app/agent, thu hồi phiên/token và ngừng định tuyến ở backend; xóa Keychain trong app không thay thế bước này.</li>
+</ul>
+<h3 id="36-kiem-tra-sau-cau-hinh">3.6. Kiểm tra sau cấu hình</h3>
+<ol>
+<li>Cài build có Bundle ID và provisioning đúng trên iPhone; đăng nhập bằng App ID/domain đã cấu hình.</li>
+<li>Xin quyền microphone, nhận VoIP token từ PushKit và đăng ký token sau khi client xác thực thành công.</li>
+<li>Chọn thiết bị mobile và trạng thái sẵn sàng, thử nhận cuộc gọi khi app mở, ở nền và khóa màn hình.</li>
+<li>Nếu gặp <code>INVALID_PUSH_CONFIG</code>, đối chiếu App ID, domain, Bundle ID, environment, trạng thái hoạt động và APNs key trên Caresoft. Không dùng token từ app hoặc môi trường khác.</li>
+<li>Khi thử TestFlight, dùng cấu hình <code>production</code> ở cả server và SDK; kiểm tra lại sau khi thay key hoặc provisioning.</li>
+</ol>
 <h2 id="4-cai-sdk">4. Cài SDK</h2>
 <p>Gói binary 1.0.0 yêu cầu iOS 15.1 trở lên. Binary được build bằng Xcode 26.4 / Swift 6.3; sử dụng toolchain tương thích. Nếu gặp lỗi compiler không đọc được module, liên hệ Caresoft để được cung cấp gói phù hợp.</p>
 <pre><code class="language-sh">git clone https://github.com/caresoftgit/caresoft_voice_sdk_ios.git

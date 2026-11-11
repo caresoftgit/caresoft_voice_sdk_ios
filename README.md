@@ -31,6 +31,7 @@ Chọn scheme `CaresoftVoiceDemo`, đặt Bundle Identifier và Apple Team của
 
 ## Tài liệu
 
+- [Đăng ký app và cấu hình push trên Caresoft](docs/ios-integration-guide.md#admin)
 - [Hướng dẫn tích hợp từng bước](docs/ios-integration-guide.md) · [Bản HTML tải về để đọc offline](docs/caresoft-voice-ios.html)
 - [API Swift / Objective-C](docs/api.md)
 - [Cấu hình backend và token](docs/backend-contract.md)
