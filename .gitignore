@@ -1,0 +1,11 @@
+.build/
+.work/
+.swiftpm/
+.DS_Store
+**/xcuserdata/
+packages/CaresoftVoice/
+*.local.*
+Local.xcconfig
+*.p8
+*.p12
+*.mobileprovision

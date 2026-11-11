@@ -1,0 +1,8 @@
+// Configure your own Bundle ID and signing team in Xcode; do not commit credentials.
+PRODUCT_BUNDLE_IDENTIFIER = com.example.CaresoftVoiceDemo
+DEVELOPMENT_TEAM =
+// Debug / development profile:
+VOICE_PUSH_ENVIRONMENT = sandbox
+APNS_ENTITLEMENT_ENVIRONMENT = development
+// Release / TestFlight: VOICE_PUSH_ENVIRONMENT = production;
+// export signs with the distribution profile's production APNs entitlement.

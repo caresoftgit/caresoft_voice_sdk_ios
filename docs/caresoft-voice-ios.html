@@ -1,0 +1,311 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Caresoft Voice SDK — Tích hợp iOS native</title><style>
+:root{color-scheme:light;--ink:#18243b;--muted:#526079;--brand:#3d55cc;--line:#dfe4ee}
+*{box-sizing:border-box}html{scroll-padding-top:32px}
+body{margin:0;background:#f3f5fa;color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+main{max-width:1120px;margin:32px auto;padding:48px 64px;background:#fff;border:1px solid var(--line);border-radius:16px}
+h1{font-size:38px;line-height:1.22;letter-spacing:-.6px;color:#22358c;margin:0 0 28px}
+h2{font-size:27px;line-height:1.35;margin:54px 0 20px;padding-top:20px;border-top:2px solid #e7ebf7;color:#253d9a}
+h3{font-size:21px;margin:30px 0 12px}p{margin:12px 0}a{color:#2848b9;text-decoration:none}a:hover{text-decoration:underline}
+ul,ol{padding-left:26px}li{margin:7px 0}strong{font-weight:650}table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;table-layout:auto}
+th,td{text-align:left;vertical-align:top;border:1px solid var(--line);padding:11px 13px;overflow-wrap:anywhere}th{background:#eef1fb;color:#263981}
+tr:nth-child(even){background:#fafbfe}code{font:13px/1.6 "SFMono-Regular",Consolas,monospace;background:#eef1f7;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}
+pre{padding:20px;background:#17243b;color:#edf3ff;border-radius:9px;overflow-x:auto;line-height:1.65}pre code{padding:0;background:transparent;color:inherit;white-space:pre;overflow-wrap:normal}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+@media(max-width:760px){main{margin:0;padding:28px 18px;border:0;border-radius:0}h1{font-size:29px}h2{font-size:24px}table{font-size:12px}th,td{padding:7px}pre{padding:14px}}
+@media print{body{background:white;font-size:10pt;line-height:1.5}main{max-width:none;margin:0;padding:0;border:0}h1{font-size:26pt}h2{font-size:18pt;break-before:page;border:0;padding:0;margin:12px 0}h3{font-size:13pt;break-after:avoid}pre{white-space:pre-wrap;background:#f3f5f9;color:#18243b;border:1px solid #dfe4ee;font-size:8pt;padding:10px}pre code{white-space:pre-wrap;font-size:8pt;overflow-wrap:anywhere}table{font-size:9pt}thead{display:table-header-group}tr{break-inside:avoid}a{color:inherit;text-decoration:none}footer{font-size:8pt}@page{size:A4;margin:17mm}}
+</style></head><body><main><h1 id="caresoft-voice-sdk-huong-dan-tich-hop-ios">Caresoft Voice SDK — Hướng dẫn tích hợp iOS</h1>
+<p><strong>1.0.0 · iOS 15.1+ · 11/11/2026</strong></p>
+<p>Hướng dẫn cài đặt SDK, cấu hình ứng dụng và triển khai cuộc gọi trên iOS bằng Swift hoặc Objective-C.</p>
+<div class="toc">
+<ul>
+<li><a href="#caresoft-voice-sdk-huong-dan-tich-hop-ios">Caresoft Voice SDK — Hướng dẫn tích hợp iOS</a><ul>
+<li><a href="#1-pham-vi-kien-truc-va-trach-nhiem">1. Phạm vi, kiến trúc và trách nhiệm</a></li>
+<li><a href="#2-phieu-cau-hinh-theo-domainbuild">2. Phiếu cấu hình theo domain/build</a></li>
+<li><a href="#3-ang-ky-ung-dung-va-apns-tren-caresoft">3. Đăng ký ứng dụng và APNs trên Caresoft</a></li>
+<li><a href="#4-cai-sdk">4. Cài SDK</a></li>
+<li><a href="#5-xcode-va-signing">5. Xcode và signing</a></li>
+<li><a href="#6-pushkit-truoc-ui">6. PushKit trước UI</a></li>
+<li><a href="#7-khoi-tao-client-va-luu-phien">7. Khởi tạo client và lưu phiên</a></li>
+<li><a href="#8-login-va-kiem-tra-phien">8. Login và kiểm tra phiên</a></li>
+<li><a href="#9-ang-ky-va-thay-token-push">9. Đăng ký và thay token push</a></li>
+<li><a href="#10-trang-thai-agent-thiet-bi-va-logout">10. Trạng thái agent, thiết bị và logout</a></li>
+<li><a href="#11-goi-ra-nhan-cuoc-goi-ieu-huong">11. Gọi ra, nhận cuộc gọi, điều hướng</a></li>
+<li><a href="#12-ui-caresoft-hoac-ui-rieng">12. UI Caresoft hoặc UI riêng</a></li>
+<li><a href="#13-api-events-va-loi">13. API, events và lỗi</a></li>
+<li><a href="#14-background-va-trang-thai-os">14. Background và trạng thái OS</a></li>
+<li><a href="#15-build-kiem-thu-va-xu-ly-loi">15. Build, kiểm thử và xử lý lỗi</a></li>
+<li><a href="#16-kiem-tra-truoc-khi-phat-hanh">16. Kiểm tra trước khi phát hành</a></li>
+<li><a href="#17-mau-tich-hop">17. Mẫu tích hợp</a></li>
+<li><a href="#18-chan-oan">18. Chẩn đoán</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="1-pham-vi-kien-truc-va-trach-nhiem">1. Phạm vi, kiến trúc và trách nhiệm</h2>
+<p>SDK độc lập với React Native. Swift/Objective-C gọi façade client/call; SDK điều phối HTTP, Socket.IO native, SIP-over-WSS native và WebRTC native. PushKit/CallKit/AVAudioSession tích hợp trực tiếp.</p>
+<table>
+<thead>
+<tr>
+<th>Bên</th>
+<th>Trách nhiệm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Caresoft/backend</td>
+<td>App ID, domain, cấu hình APNs, hợp đồng action, SIP/media, TURN, định tuyến agent</td>
+</tr>
+<tr>
+<td>Backend khách hàng</td>
+<td>Xác thực người dùng, phát C2C token, giữ Voice API signing secret</td>
+</tr>
+<tr>
+<td>App host</td>
+<td>Signing/entitlements, singleton client, tokenProvider, xin quyền mic, khởi động PushKit sớm, UI/navigation</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>Lưu phiên Keychain, control/SIP/media, native actions, snapshot/event, cleanup và kết quả ACK</td>
+</tr>
+</tbody>
+</table>
+<p>Một process có một client, một agent và một call được giữ chỗ. Không tự chuyển agent sang mobile/available khi login. Signaling <code>active</code> không đồng nghĩa media <code>connected</code>.</p>
+<h2 id="2-phieu-cau-hinh-theo-domainbuild">2. Phiếu cấu hình theo domain/build</h2>
+<p>Thu thập domain, API base HTTPS URL, appId, agent test, bundle ID, Apple Team ID, APNs key ID, môi trường APNs, installation ID ổn định, appVersionCode, ICE/TURN URLs và credential ngắn hạn. Cần hai thiết bị/số đối ứng được phép gọi để nghiệm thu.</p>
+<table>
+<thead>
+<tr>
+<th>Giá trị</th>
+<th>Nơi dùng</th>
+<th>Bí mật</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C2C token</td>
+<td><code>tokenProvider</code>, đăng nhập app và voice</td>
+<td>Có, không log</td>
+</tr>
+<tr>
+<td>App auth token</td>
+<td>SDK nội bộ; REST với account/domain</td>
+<td>Có, Keychain</td>
+</tr>
+<tr>
+<td>Voice auth token</td>
+<td>SDK nội bộ; control/SIP bootstrap</td>
+<td>Có, Keychain</td>
+</tr>
+<tr>
+<td>Voice API token</td>
+<td>Ký HS256 trên backend</td>
+<td>Có, không nhúng production app</td>
+</tr>
+<tr>
+<td>APNs VoIP registration token</td>
+<td>Đăng ký thiết bị action 2</td>
+<td>Không đưa vào log công khai</td>
+</tr>
+<tr>
+<td>APNs <code>.p8</code></td>
+<td>Caresoft cấu hình server</td>
+<td>Tuyệt đối không đóng gói app</td>
+</tr>
+<tr>
+<td>ICE credential</td>
+<td>WebRTC kết nối media</td>
+<td>Không log hoặc xuất diagnostics</td>
+</tr>
+</tbody>
+</table>
+<p><code>environment</code> chỉ nhận <code>sandbox</code> hoặc <code>production</code>. Chọn theo provisioning của build đã ký, không suy từ <code>DEBUG</code>. Development entitlement dùng <code>development</code> nhưng SDK gửi <code>sandbox</code>; distribution dùng <code>production</code> ở cả hai.</p>
+<h2 id="3-ang-ky-ung-dung-va-apns-tren-caresoft">3. Đăng ký ứng dụng và APNs trên Caresoft</h2>
+<p>Admin tạo app trên đúng tenant/domain, ghi lại <code>appId</code>, cấu hình bundle ID chính xác và APNs VoIP credential được cấp cho app đó. Xác minh sandbox/production tương ứng build. SDK action 22 yêu cầu response chứa <code>appId</code> đúng và <code>pushConfigId</code> là số dương khi bật configured push.</p>
+<p>Khi thay key, môi trường hoặc bundle, cập nhật server rồi đăng ký lại đúng token của build; không dùng token từ app/domain khác. Khi ngừng app/agent, backend cần revoke session/token và chấm dứt routing. Không coi việc xóa local Keychain là xác nhận server đã revoke.</p>
+<p>Khởi động PushKit trong AppDelegate trước khi hiển thị giao diện.</p>
+<h2 id="4-cai-sdk">4. Cài SDK</h2>
+<p>Gói binary 1.0.0 yêu cầu iOS 15.1 trở lên. Binary được build bằng Xcode 26.4 / Swift 6.3; sử dụng toolchain tương thích. Nếu gặp lỗi compiler không đọc được module, liên hệ Caresoft để được cung cấp gói phù hợp.</p>
+<pre><code class="language-sh">git clone https://github.com/caresoftgit/caresoft_voice_sdk_ios.git
+cd caresoft_voice_sdk_ios
+python3 scripts/setup-sdk.py
+</code></pre>
+<ol>
+<li>Script kiểm tra SHA-256 và giải nén vào <code>packages/CaresoftVoice</code>.</li>
+<li>Trong project ứng dụng, chọn <strong>File → Add Package Dependencies → Add Local</strong>, chọn thư mục đó.</li>
+<li>Chọn product <strong>CaresoftVoice</strong> cho target ứng dụng; thêm <strong>CaresoftVoiceUI</strong> nếu cần giao diện có sẵn.</li>
+<li>Build ứng dụng. Không thêm một bản WebRTC khác vào cùng target.</li>
+</ol>
+<p>Đưa toàn bộ thư mục package vào nơi lưu dependency của dự án và giữ đường dẫn ổn định cho máy phát triển/CI. Không chỉ sao chép riêng <code>CaresoftVoice.xcframework</code>. Có thể mở <code>demo/CaresoftVoiceDemo.xcodeproj</code> để tham khảo cách cấu hình, hoặc các scheme <code>ConsumerSwift</code> / <code>ConsumerObjC</code> để xem cách import SDK.</p>
+<h2 id="5-xcode-va-signing">5. Xcode và signing</h2>
+<p>App host bật Push Notifications và Background Modes: Voice over IP, Audio. Thêm <code>NSMicrophoneUsageDescription</code> rõ mục đích. Chọn provisioning với bundle ID trùng cấu hình Caresoft/APNs. Xin quyền microphone trong UI foreground trước khi cần trả lời; <code>checkReadiness()</code> chỉ đọc trạng thái, không tự hiện hộp thoại.</p>
+<p>Simulator dùng để build/test logic và media offer; không nghiệm thu VoIP push, audio route hoặc cuộc gọi CallKit thật. Không có fallback âm thầm bỏ CallKit trên máy thật.</p>
+<h2 id="6-pushkit-truoc-ui">6. PushKit trước UI</h2>
+<p>Gọi trong <code>application(_:didFinishLaunchingWithOptions:)</code>:</p>
+<pre><code class="language-swift">CaresoftVoicePush.shared.start(appName: &quot;Tên ứng dụng&quot;)
+CaresoftVoicePush.shared.onToken = { token in
+    // Giữ token mới nhất; chỉ đăng ký sau session authenticated.
+}
+CaresoftVoicePush.shared.onInvalidated = {
+    // Unregister registration trước đó; không tự tạo token rỗng.
+}
+</code></pre>
+<p>Nếu host đã sở hữu <code>PKPushRegistry</code>, không tạo registry thứ hai. Forward payload và completion vào <code>CaresoftVoicePush.shared.receive(payload.dictionaryPayload, completion: completion)</code> trong delegate của host. Giữ callback đúng một lần.</p>
+<p>Native entrypoint báo CallKit sớm rồi xử lý phiên; incoming/actions được giữ tạm trước khi client attach. Không chờ tokenProvider hoặc navigation để report incoming. Không dùng <code>receivePush</code> ở UI để xử lý lại cùng PushKit callback; API đó dành cho đường forwarding chủ động/test.</p>
+<p>Payload cancellation-only không mặc nhiên phù hợp chính sách VoIP push của iOS. Server phải dùng VoIP push cho cuộc gọi thật, xử lý cancel/answered-elsewhere qua control khi có thể; nghiệm thu policy trên app cụ thể.</p>
+<h2 id="7-khoi-tao-client-va-luu-phien">7. Khởi tạo client và lưu phiên</h2>
+<pre><code class="language-swift">let options = VoiceOptions(
+    domain: &quot;tenant&quot;, appId: &quot;app-id&quot;,
+    apiBaseURL: URL(string: &quot;https://api.example.test&quot;)!,
+    installationId: installationID, appVersionCode: &quot;1&quot;,
+    tokenProvider: { try await yourBackend.fetchC2CToken() },
+    iceServers: [IceServer(urls: [&quot;turns:turn.example.test:443&quot;],
+                           username: turnUser, credential: turnCredential)],
+    pushConfig: AppPushConfig(applicationId: Bundle.main.bundleIdentifier!,
+                             environment: .sandbox)
+)
+let client = try CaresoftVoiceClient(options: options)
+</code></pre>
+<p>Mẫu <code>yourBackend</code> là service của app, không phải API SDK. Demo/consumer trong bộ bàn giao là ví dụ build được. Giữ client ở tầng service sống suốt app, không tạo trong mỗi màn hình.</p>
+<p>Keychain mặc định: namespace domain/appId/applicationId, schema riêng iOS v1, <code>AfterFirstUnlockThisDeviceOnly</code>. Không dùng UserDefaults lưu token. App có thể inject <code>VoiceCredentialStore</code>; dữ liệu <code>Data</code> là bí mật, phải bảo vệ tương đương Keychain. Trước first unlock, Keychain có thể chưa đọc được.</p>
+<h2 id="8-login-va-kiem-tra-phien">8. Login và kiểm tra phiên</h2>
+<p>Gắn observer trước khi restore. <code>checkSession()</code> đọc/check phiên hiện có và <strong>không gọi tokenProvider</strong>. <code>unknown</code> khi offline/5xx/403 không được biến thành tự động logout hoặc đăng nhập lại. <code>connect()</code> gọi tokenProvider khi cần login; các connect đồng thời chia sẻ một tác vụ.</p>
+<p>Backend của bạn xác thực người dùng và cấp C2C token. <code>tokenProvider</code> gọi dịch vụ này qua HTTPS, trả chuỗi token cho SDK. Không ký token bằng Voice API secret trong ứng dụng phát hành. Xem <a href="backend-contract.md">cấu hình backend</a>.</p>
+<pre><code class="language-swift">try await client.connect()
+try await client.selectCallDevice(.mobile)
+try await client.setAvailability(.available)
+</code></pre>
+<p>Chỉ chuyển trạng thái sẵn sàng khi người dùng bắt đầu nhận cuộc gọi. Kiểm tra quyền microphone và readiness trước khi gọi.</p>
+<h2 id="9-ang-ky-va-thay-token-push">9. Đăng ký và thay token push</h2>
+<p>Hai ví dụ <code>AppPushConfig</code> và <code>PushRegistration</code> dùng <code>.sandbox</code> cho development. Khi phát hành TestFlight/App Store, đổi <strong>cả hai</strong> thành <code>.production</code>, khớp provisioning và cấu hình Caresoft. SDK nhận environment qua các API này; key <code>VoicePushEnvironment</code> trong Info.plist chỉ là cách ứng dụng mẫu đọc cấu hình.</p>
+<pre><code class="language-swift">let registration = PushRegistration(
+    token: token, environment: .sandbox,
+    installationId: installationID,
+    applicationId: Bundle.main.bundleIdentifier!
+)
+try await client.registerPushToken(registration)
+</code></pre>
+<p>Chỉ đăng ký sau authenticated; token nhận trước login phải được giữ để đăng ký sau. Khi restore, token lưu cũ không tự làm readiness push thành ready: cần ACK đăng ký. Rotation gửi token mới; invalidation gọi <code>unregisterPushToken</code> với registration cũ chính xác. Backend cần đảm bảo registration cũ không tiếp tục routing sau rotation/revoke.</p>
+<p>Nếu không có configured push contract, dùng Swift <code>VoicePushBackend</code> do bên tích hợp cung cấp; SDK không đoán backend legacy. Hook nhận voice credential, phải giữ kín và resolve chỉ khi server ACK thật.</p>
+<h2 id="10-trang-thai-agent-thiet-bi-va-logout">10. Trạng thái agent, thiết bị và logout</h2>
+<p><code>getAvailability</code> / <code>setAvailability(.available/.unavailable)</code>; <code>getCallDevice</code> / <code>selectCallDevice(.mobile/.browser)</code>. Mutations chỉ cập nhật theo ACK và readback. Gọi ra yêu cầu mobile; login không thay đổi ca làm việc. Không switch device/logout khi có active/reserved call.</p>
+<p><code>logout()</code> thử cả app logout và voice unregister, rồi xóa local. Kết quả có <code>appSession</code>, <code>voiceSession</code> (<code>confirmed</code>/<code>unconfirmed</code>), <code>localCredentials</code>, <code>errors</code>. HTTP 200 không đủ nếu body không ACK. Nếu xóa Keychain không thành công, nhận <code>LOCAL_CLEANUP_FAILED</code>; không tuyên bố logout sạch. <code>dispose()</code> dọn local engine/observers, giữ phiên để restore, không gọi server logout.</p>
+<h2 id="11-goi-ra-nhan-cuoc-goi-ieu-huong">11. Gọi ra, nhận cuộc gọi, điều hướng</h2>
+<pre><code class="language-swift">let subscription = client.observe { event, meta in
+    switch event {
+    case .incomingCall(let call), .callRestored(let call): showCall(call)
+    default: break
+    }
+}
+let call = try client.createCall(options: CallOptions(to: &quot;123456&quot;))
+try await call.start()
+</code></pre>
+<p><code>createCall</code> giữ slot ngay, chưa mở media/network call. <code>start</code> xác minh device/mic, tạo CallKit outgoing và SIP. Incoming native REGISTER → action 4 → pickup 17/18 → SIP offer + audio gate → answer → 7. Chỉ SIP confirmation đưa state <code>active</code>; media có trạng thái độc lập.</p>
+<p>Answer từ CallKit không được app gọi lại vì thấy event UI. Các answer đồng thời dùng chung task. End/reject làm local terminal ngay; kết quả server ACK riêng. Call ID local cố định, <code>serverCallId</code> đến từ metadata không đổi ID.</p>
+<h2 id="12-ui-caresoft-hoac-ui-rieng">12. UI Caresoft hoặc UI riêng</h2>
+<pre><code class="language-swift">import CaresoftVoiceUI
+let screen = VoiceCallViewController(call: call)  // UIKit
+let content = VoiceCallView(call: call)          // SwiftUI
+</code></pre>
+<p>UI có answer/reject/end, mute/hold, keypad DTMF, route và timer từ connectedAt. Font theo Dynamic Type, nút native có accessibility label. Cần kiểm tra VoiceOver và Bluetooth trên thiết bị thật.</p>
+<p>Custom UI đọc snapshot, subscribe, đọc lại snapshot sau subscribe để tránh race. Giữ <code>VoiceSubscription</code>, cancel khi detach; cancel subscription/đóng màn hình không dừng call. Mute trước active cho phép khóa mic sớm; unmute chỉ active sau ACK. Hold không tự giả thay đổi trạng thái khi server timeout.</p>
+<h2 id="13-api-events-va-loi">13. API, events và lỗi</h2>
+<p>Toàn bộ method/type/event tại <a href="api.md">API reference</a>. Client/call public trên MainActor; completion/delegate Objective-C trên main. SDK không gửi raw SIP, credential, SDP hoặc response body trong public snapshots/error.</p>
+<p><code>EventMeta</code> có clientId, callId optional, sequence tăng chung theo client, timestamp. Swift timestamp là Date; Objective-C dictionary dùng milliseconds từ Unix epoch. Không dùng event sequence làm server call ID.</p>
+<h2 id="14-background-va-trang-thai-os">14. Background và trạng thái OS</h2>
+<table>
+<thead>
+<tr>
+<th>Trạng thái</th>
+<th>Cách tích hợp / giới hạn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foreground</td>
+<td>Xin mic trước; CallKit giữ quyền audio</td>
+</tr>
+<tr>
+<td>Background/lock</td>
+<td>PushKit report sớm; restore session; không phụ thuộc UI</td>
+</tr>
+<tr>
+<td>Cold start do OS</td>
+<td>AppDelegate khởi động native entrypoint trước UI</td>
+</tr>
+<tr>
+<td>OS-killed</td>
+<td>Cần thử push thật với provisioning và session</td>
+</tr>
+<tr>
+<td>User force-quit</td>
+<td>Không cam kết hệ điều hành sẽ đánh thức app</td>
+</tr>
+<tr>
+<td>Reboot trước first unlock</td>
+<td>Keychain có thể không truy cập được</td>
+</tr>
+<tr>
+<td>GSM/interruption, Wi-Fi ↔ cellular</td>
+<td>Media state phản ánh thực tế; không tự gọi lại</td>
+</tr>
+</tbody>
+</table>
+<p>APNs delivery, policy wakeup và quyền audio không thể chứng minh bằng simulator. Xem <a href="testing.md">checklist tích hợp</a>.</p>
+<h2 id="15-build-kiem-thu-va-xu-ly-loi">15. Build, kiểm thử và xử lý lỗi</h2>
+<p>Chạy ứng dụng trên iPhone có provisioning và APNs đúng môi trường. Kiểm tra gọi hai chiều, microphone, DTMF, loa/tai nghe, nhận cuộc gọi khi ứng dụng ở nền và khóa màn hình theo <a href="testing.md">checklist</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Lỗi</th>
+<th>Kiểm tra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUTH_REQUIRED</td>
+<td>Session/C2C đã hết hạn hoặc server revoke; xin token qua backend</td>
+</tr>
+<tr>
+<td>INVALID_PUSH_CONFIG</td>
+<td>App/bundle/environment/tenant và cấu hình Caresoft</td>
+</tr>
+<tr>
+<td>DEVICE_NOT_MOBILE</td>
+<td>Chọn mobile có chủ đích rồi đọc lại agentStatus</td>
+</tr>
+<tr>
+<td>PERMISSION_DENIED</td>
+<td>Microphone hoặc REST 403; không tự kết luận mất phiên</td>
+</tr>
+<tr>
+<td>TIMEOUT</td>
+<td>Phân biệt control ACK/SIP/audio; không replay mutation đã gửi</td>
+</tr>
+<tr>
+<td>CALLKIT_FAILED</td>
+<td>Device/signing/CallKit policy; simulator không nghiệm thu</td>
+</tr>
+<tr>
+<td>MEDIA_FAILED</td>
+<td>SDP/ICE/TURN/network; SIP active chưa chắc có tiếng</td>
+</tr>
+<tr>
+<td>LOCAL_CLEANUP_FAILED</td>
+<td>Keychain clear chưa được xác minh; cần xử lý tại host</td>
+</tr>
+</tbody>
+</table>
+<p>Không gửi log raw credential/SIP/audio khi báo lỗi. Chỉ gửi version, OS/device, safe error code, bước tái hiện và kết quả test được phép chia sẻ.</p>
+<h2 id="16-kiem-tra-truoc-khi-phat-hanh">16. Kiểm tra trước khi phát hành</h2>
+<p>Hoàn thành <a href="testing.md">checklist tích hợp</a> với App ID, Bundle ID, APNs environment và backend sẽ sử dụng thực tế. Đảm bảo dịch vụ cấp token xác thực người dùng, hỗ trợ hết hạn/thu hồi token và không ghi secret vào log.</p>
+<h2 id="17-mau-tich-hop">17. Mẫu tích hợp</h2>
+<ul>
+<li><a href="integration-examples/swift/Integration.swift">Swift</a></li>
+<li><a href="integration-examples/objective-c/Consumer.m">Objective-C</a></li>
+<li><a href="integration-examples/custom-ui/CustomCallView.swift">Giao diện tùy chỉnh</a></li>
+<li><a href="../demo/README.md">Ứng dụng mẫu</a></li>
+</ul>
+<p>Để chọn số gọi ra, truyền ID được cấp quyền vào <code>CallOptions(to: number, callerId: selectedLineID)</code>. <code>VoiceCallView(call: call, lineLabel: selectedLineLabel)</code> hiển thị nhãn số gọi ra; nhãn không thay đổi tuyến gọi.</p>
+<h2 id="18-chan-oan">18. Chẩn đoán</h2>
+<p>Khi cần hỗ trợ, cung cấp phiên bản SDK, iOS/device, thời điểm, chiều gọi, mã lỗi và các bước tái hiện. Không gửi token, khóa APNs, SDP hoặc âm thanh.</p>
+<p>Có thể bật boolean <code>CaresoftVoiceDiagnosticsEnabled</code> trong Info.plist rồi build lại để thu log chẩn đoán. Log được lưu trong cache, giới hạn 512 KiB, không tự upload. Tắt cấu hình này sau khi hoàn tất kiểm tra. Xem <a href="testing.md">các lỗi thường gặp</a>.</p><footer>Caresoft Voice SDK · iOS native · 1.0.0 · 11/11/2026</footer></main></body></html>
