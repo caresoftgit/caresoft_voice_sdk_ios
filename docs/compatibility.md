@@ -2,7 +2,7 @@
 
 | Thành phần | Yêu cầu |
 |---|---|
-| SDK | 1.1.0 |
+| SDK | 1.2.0-libre.1 |
 | iOS | 15.1 trở lên |
 | Ngôn ngữ ứng dụng | Swift hoặc Objective-C |
 | Toolchain binary | Xcode 26.4 / Swift 6.3 |

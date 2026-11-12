@@ -1,8 +1,8 @@
-# Nội dung gói cài đặt 1.1.0
+# Nội dung gói cài đặt 1.2.0-libre.1
 
 | Đường dẫn | Nội dung |
 |---|---|
-| `packages/CaresoftVoice-1.1.0-binary.zip` | SDK và các thành phần đi kèm |
+| `packages/CaresoftVoice-1.2.0-libre.1-binary.zip` | SDK và các thành phần đi kèm |
 | `packages/SHA256SUMS` | SHA-256 của ZIP |
 | `packages/release.json` | Phiên bản, tên file, kích thước và checksum |
 | `scripts/setup-sdk.py` | Kiểm tra checksum và giải nén package |

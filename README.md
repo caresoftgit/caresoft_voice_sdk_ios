@@ -2,7 +2,7 @@
 
 Tích hợp gọi điện vào ứng dụng iOS với Swift hoặc Objective-C. SDK cung cấp đăng nhập, gọi đi/nhận cuộc gọi, CallKit, PushKit và giao diện cuộc gọi tùy chọn.
 
-**Phiên bản 1.1.0 · iOS 15.1 trở lên · Binary được build bằng Xcode 26.4 / Swift 6.3**
+**Phiên bản 1.2.0-libre.1 · iOS 15.1 trở lên · Binary được build bằng Xcode 26.4 / Swift 6.3**
 
 ## Bắt đầu
 
@@ -10,7 +10,7 @@ Tích hợp gọi điện vào ứng dụng iOS với Swift hoặc Objective-C. 
 2. Tải repo và cài gói SDK:
 
 ```sh
-git clone https://github.com/caresoftgit/caresoft_voice_sdk_ios.git
+git clone --branch trial/ios-libre-1.2.0 https://github.com/caresoftgit/caresoft_voice_sdk_ios.git
 cd caresoft_voice_sdk_ios
 python3 scripts/setup-sdk.py
 ```

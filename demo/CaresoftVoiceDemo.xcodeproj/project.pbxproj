@@ -3,185 +3,164 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2055F7B3CC60718EA28760A7 /* CaresoftVoice in Frameworks */ = {isa = PBXBuildFile; productRef = 038096A441F5E770D56DB85E /* CaresoftVoice */; };
-		21AC900853EE42CE324F5A15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF356BF4388034CAFEBD0B96 /* main.m */; };
-		23DEDDBAD317224BE2068ECE /* DemoRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA42AFAF6C4DBB55592A0A9 /* DemoRootView.swift */; };
-		2576513B23DBAE48A987F0DB /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CF6677D0AA74671577DCAB /* App.swift */; };
-		2FA3E3ED9B7CFF302B28433E /* CaresoftVoice in Frameworks */ = {isa = PBXBuildFile; productRef = 20A0B7CA85269A334E6A95ED /* CaresoftVoice */; };
-		30DC15DB8E44B957A6AB2AAD /* VoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0991CFA3FFB9EFA9E834AA65 /* VoiceService.swift */; };
-		31FA243D31C296515A95DA28 /* DemoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A36A86A954A6EDC3816B40C /* DemoConfiguration.swift */; };
-		4209B60E98CC31CE0D793BEC /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A42875B4E50F0BC2A1338 /* KeychainTests.swift */; };
-		797E930FEBC755D335E2C584 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23532697BF6D3D7437665158 /* Foundation.framework */; };
-		7B2765AF5876B3CF5EA29E2A /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BE75B551632BB426D1146F /* LoginScreen.swift */; };
-		7C89CC9C7339F40FB3456181 /* DialerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772C5E3E9854301521B1DB4 /* DialerScreen.swift */; };
-		9426EE0AEA2C094878BF6541 /* CaresoftVoiceUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC6A07851054C04E1D3E5697 /* CaresoftVoiceUI */; };
-		A6EF54901A4C1E7BFAF5C63B /* CaresoftVoice in Frameworks */ = {isa = PBXBuildFile; productRef = 4904FC680C11A5A48E57A3A5 /* CaresoftVoice */; };
-		BF9A7D6ABA1367B400A56A4A /* DemoComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5849E7B83596C16754031761 /* DemoComponents.swift */; };
-		C5EC8A612B94B632F85B1E18 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EB67391A3E0579CD996BB0 /* DemoApp.swift */; };
-		C7743DCE75380E0385A59D75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23532697BF6D3D7437665158 /* Foundation.framework */; };
-		D07B4317A20E05F0AE84DD6F /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE955E251DE4895B25DE418 /* SettingsScreen.swift */; };
-		D5DF39563DE87535F7AC20EB /* CaresoftVoice in Frameworks */ = {isa = PBXBuildFile; productRef = 15DDDD6E38EE06D357D2C9B4 /* CaresoftVoice */; };
-		DAEF28D78DD12AA434D67E2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23532697BF6D3D7437665158 /* Foundation.framework */; };
-		DF3DC663F5B52581A4C737FD /* CustomCallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3C687834E2A55AEC6CD2D3 /* CustomCallScreen.swift */; };
-		F0EAB98514CF235E802D5AF3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4A4B76E33741A7E77DD0716 /* Images.xcassets */; };
-		FB181D4F28DE5AF4798D0665 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23532697BF6D3D7437665158 /* Foundation.framework */; };
+		0D94C8BD484938EECA142D3A /* CaresoftVoice in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE4B0152B73266B3CC5A201 /* CaresoftVoice */; };
+		0DCC745210F42A8C6A8B0615 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22029BE25EEBF9EDC820EB23 /* App.swift */; };
+		14E6D4A9A150826C608100D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE634FDACFDF252562A0D1 /* main.m */; };
+		199255305B83A4797F53214E /* CaresoftVoice in Frameworks */ = {isa = PBXBuildFile; productRef = 8E63A4C09699B1A007F4F87E /* CaresoftVoice */; };
+		28891CC61718635537DD7A2B /* DemoRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A719F98D5E57A411F101333 /* DemoRootView.swift */; };
+		4161131C9841B2E21071A293 /* CaresoftVoice in Frameworks */ = {isa = PBXBuildFile; productRef = 4E6B63E81AD5364A44DFD76C /* CaresoftVoice */; };
+		4E9D5977C21098319DC8DEDF /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4182038B4870184D18A2F26 /* LoginScreen.swift */; };
+		710FF17FB482E6D967C08C6A /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807376B84264F47B77BBD490 /* KeychainTests.swift */; };
+		A475E15DC2009B48DB61AABD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC4F98FDE061624E9254F28 /* Foundation.framework */; };
+		A4FF58C5893B53F385179B1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC4F98FDE061624E9254F28 /* Foundation.framework */; };
+		A6BC814CC6356BCE775420F6 /* CaresoftVoiceUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6DFF5740ED9D8B51A04B3E2A /* CaresoftVoiceUI */; };
+		C31B7B6CE9DB29452312CBE8 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0156DDEC721A7BBD05A235 /* DemoApp.swift */; };
+		CA5A4D505182C4462D539284 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC4F98FDE061624E9254F28 /* Foundation.framework */; };
+		D6B432752E076FCF1DA97A5F /* VoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9466739C49ECB85EC2105C69 /* VoiceService.swift */; };
+		E304DDB65DE2E23960B51E36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67BAF7CB9B8B61359D447BF1 /* Images.xcassets */; };
+		E5652F72086DBD30C5FDE876 /* DialerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D4BA70DE8A240C1370F7A /* DialerScreen.swift */; };
+		EA3C14CC0B471DAF00969498 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E064895A76A03AC3D9F29B /* SettingsScreen.swift */; };
+		F245FBD1A6B6F9018EC20B69 /* CustomCallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF783AC846463311ED2B6521 /* CustomCallScreen.swift */; };
+		F740A49F01E2BAB20882930D /* CaresoftVoice in Frameworks */ = {isa = PBXBuildFile; productRef = 73B10EECA7FC1D64DFD0AD64 /* CaresoftVoice */; };
+		FBD1C7D88274A24593FD3B85 /* DemoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95F8A159E22D43884265CCC /* DemoConfiguration.swift */; };
+		FDAA633E2191EE96873D56FA /* DemoComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886F310693CC32B77DA398 /* DemoComponents.swift */; };
+		FDDABEBC17B43EB1293BB08F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC4F98FDE061624E9254F28 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A80843D816911CEC507B6F34 /* PBXContainerItemProxy */ = {
+		9573338DBC269A3E9A72DAEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 28ADD0C9FD6BDEE8691CCED4 /* Project object */;
+			containerPortal = 35E53F692A9B60E0E9D4B7B4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C1A61CE45A57E67815858B3E;
+			remoteGlobalIDString = 1E1DE42C1F072650FF472DF2;
 			remoteInfo = CaresoftVoiceDemo;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01CF6677D0AA74671577DCAB /* App.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = App.swift; path = ../Examples/ConsumerSwift/App.swift; sourceTree = "<group>"; };
-		0991CFA3FFB9EFA9E834AA65 /* VoiceService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoiceService.swift; path = CaresoftVoiceDemo/VoiceService.swift; sourceTree = "<group>"; };
-		23532697BF6D3D7437665158 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		23735C6EF3CEC19F47BBC5B9 /* CaresoftVoiceDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaresoftVoiceDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		560A42875B4E50F0BC2A1338 /* KeychainTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeychainTests.swift; path = Tests/KeychainTests.swift; sourceTree = "<group>"; };
-		5849E7B83596C16754031761 /* DemoComponents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DemoComponents.swift; path = CaresoftVoiceDemo/DemoComponents.swift; sourceTree = "<group>"; };
-		7A36A86A954A6EDC3816B40C /* DemoConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DemoConfiguration.swift; path = CaresoftVoiceDemo/DemoConfiguration.swift; sourceTree = "<group>"; };
-		8772C5E3E9854301521B1DB4 /* DialerScreen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialerScreen.swift; path = CaresoftVoiceDemo/DialerScreen.swift; sourceTree = "<group>"; };
-		8F6D5FB8E8CDA489E43040F4 /* ConsumerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsumerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CA42AFAF6C4DBB55592A0A9 /* DemoRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DemoRootView.swift; path = CaresoftVoiceDemo/DemoRootView.swift; sourceTree = "<group>"; };
-		A3DBDAFAD8B89DE5E0110AE0 /* CaresoftVoiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaresoftVoiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF356BF4388034CAFEBD0B96 /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../Examples/ConsumerObjC/main.m; sourceTree = "<group>"; };
-		B4A4B76E33741A7E77DD0716 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CaresoftVoiceDemo/Images.xcassets; sourceTree = "<group>"; };
-		BA3C687834E2A55AEC6CD2D3 /* CustomCallScreen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomCallScreen.swift; path = CaresoftVoiceDemo/CustomCallScreen.swift; sourceTree = "<group>"; };
-		C43FD144D48A15A69D63D515 /* ConsumerObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsumerObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6BE75B551632BB426D1146F /* LoginScreen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoginScreen.swift; path = CaresoftVoiceDemo/LoginScreen.swift; sourceTree = "<group>"; };
-		DBE955E251DE4895B25DE418 /* SettingsScreen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsScreen.swift; path = CaresoftVoiceDemo/SettingsScreen.swift; sourceTree = "<group>"; };
-		E4EB67391A3E0579CD996BB0 /* DemoApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DemoApp.swift; path = CaresoftVoiceDemo/DemoApp.swift; sourceTree = "<group>"; };
+		0A719F98D5E57A411F101333 /* DemoRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DemoRootView.swift; path = CaresoftVoiceDemo/DemoRootView.swift; sourceTree = "<group>"; };
+		0D0156DDEC721A7BBD05A235 /* DemoApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DemoApp.swift; path = CaresoftVoiceDemo/DemoApp.swift; sourceTree = "<group>"; };
+		22029BE25EEBF9EDC820EB23 /* App.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = App.swift; path = ../Examples/ConsumerSwift/App.swift; sourceTree = "<group>"; };
+		4BC4F98FDE061624E9254F28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4EFE634FDACFDF252562A0D1 /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../Examples/ConsumerObjC/main.m; sourceTree = "<group>"; };
+		55239050A601FC00744E6036 /* ConsumerObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsumerObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67BAF7CB9B8B61359D447BF1 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CaresoftVoiceDemo/Images.xcassets; sourceTree = "<group>"; };
+		72C4ED313FE619DC84082F41 /* CaresoftVoiceDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaresoftVoiceDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		807376B84264F47B77BBD490 /* KeychainTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeychainTests.swift; path = Tests/KeychainTests.swift; sourceTree = "<group>"; };
+		9466739C49ECB85EC2105C69 /* VoiceService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoiceService.swift; path = CaresoftVoiceDemo/VoiceService.swift; sourceTree = "<group>"; };
+		9AED060B0993DF3B0A208064 /* CaresoftVoiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaresoftVoiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF783AC846463311ED2B6521 /* CustomCallScreen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomCallScreen.swift; path = CaresoftVoiceDemo/CustomCallScreen.swift; sourceTree = "<group>"; };
+		CA886F310693CC32B77DA398 /* DemoComponents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DemoComponents.swift; path = CaresoftVoiceDemo/DemoComponents.swift; sourceTree = "<group>"; };
+		D94878596C6F72A802B256E4 /* ConsumerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsumerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA5D4BA70DE8A240C1370F7A /* DialerScreen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialerScreen.swift; path = CaresoftVoiceDemo/DialerScreen.swift; sourceTree = "<group>"; };
+		E4182038B4870184D18A2F26 /* LoginScreen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoginScreen.swift; path = CaresoftVoiceDemo/LoginScreen.swift; sourceTree = "<group>"; };
+		E95F8A159E22D43884265CCC /* DemoConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DemoConfiguration.swift; path = CaresoftVoiceDemo/DemoConfiguration.swift; sourceTree = "<group>"; };
+		F9E064895A76A03AC3D9F29B /* SettingsScreen.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsScreen.swift; path = CaresoftVoiceDemo/SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		08181419D1BC3FB4B4D049BD /* Frameworks */ = {
+		2DBA9CD0A25358E49CC84715 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAEF28D78DD12AA434D67E2B /* Foundation.framework in Frameworks */,
-				A6EF54901A4C1E7BFAF5C63B /* CaresoftVoice in Frameworks */,
+				A4FF58C5893B53F385179B1C /* Foundation.framework in Frameworks */,
+				4161131C9841B2E21071A293 /* CaresoftVoice in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99B3CE06D713F8A825F7C58D /* Frameworks */ = {
+		2FD0918A5C82BD4ED7C8C27C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7743DCE75380E0385A59D75 /* Foundation.framework in Frameworks */,
-				2FA3E3ED9B7CFF302B28433E /* CaresoftVoice in Frameworks */,
+				A475E15DC2009B48DB61AABD /* Foundation.framework in Frameworks */,
+				0D94C8BD484938EECA142D3A /* CaresoftVoice in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3AF857BA7647A4BAC114D7A /* Frameworks */ = {
+		3D2E95F3BE1D190F594DB217 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB181D4F28DE5AF4798D0665 /* Foundation.framework in Frameworks */,
-				2055F7B3CC60718EA28760A7 /* CaresoftVoice in Frameworks */,
-				9426EE0AEA2C094878BF6541 /* CaresoftVoiceUI in Frameworks */,
+				CA5A4D505182C4462D539284 /* Foundation.framework in Frameworks */,
+				F740A49F01E2BAB20882930D /* CaresoftVoice in Frameworks */,
+				A6BC814CC6356BCE775420F6 /* CaresoftVoiceUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB3927FCF7DDDE2E3EA1CF59 /* Frameworks */ = {
+		92594BB62D21A84E5AFB872F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				797E930FEBC755D335E2C584 /* Foundation.framework in Frameworks */,
-				D5DF39563DE87535F7AC20EB /* CaresoftVoice in Frameworks */,
+				FDDABEBC17B43EB1293BB08F /* Foundation.framework in Frameworks */,
+				199255305B83A4797F53214E /* CaresoftVoice in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0EE415CA225011AE6BE1815B /* iOS */ = {
+		26B2805D94E97DFA205D67C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23532697BF6D3D7437665158 /* Foundation.framework */,
+				9AED060B0993DF3B0A208064 /* CaresoftVoiceDemo.app */,
+				D94878596C6F72A802B256E4 /* ConsumerSwift.app */,
+				55239050A601FC00744E6036 /* ConsumerObjC.app */,
+				72C4ED313FE619DC84082F41 /* CaresoftVoiceDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BB0C9F9AF0AA36854555EBD /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4BC4F98FDE061624E9254F28 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		2131FF743F4FC1B6180015DD = {
+		9327CBB02FE4A4DAE890C87F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EE06F1AFA3B56F7412F9AE71 /* Products */,
-				A70A6650362E813D51E5F598 /* Frameworks */,
-				E4EB67391A3E0579CD996BB0 /* DemoApp.swift */,
-				01CF6677D0AA74671577DCAB /* App.swift */,
-				AF356BF4388034CAFEBD0B96 /* main.m */,
-				BA3C687834E2A55AEC6CD2D3 /* CustomCallScreen.swift */,
-				5849E7B83596C16754031761 /* DemoComponents.swift */,
-				7A36A86A954A6EDC3816B40C /* DemoConfiguration.swift */,
-				9CA42AFAF6C4DBB55592A0A9 /* DemoRootView.swift */,
-				8772C5E3E9854301521B1DB4 /* DialerScreen.swift */,
-				D6BE75B551632BB426D1146F /* LoginScreen.swift */,
-				DBE955E251DE4895B25DE418 /* SettingsScreen.swift */,
-				0991CFA3FFB9EFA9E834AA65 /* VoiceService.swift */,
-				560A42875B4E50F0BC2A1338 /* KeychainTests.swift */,
-				B4A4B76E33741A7E77DD0716 /* Images.xcassets */,
-			);
-			sourceTree = "<group>";
-		};
-		A70A6650362E813D51E5F598 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0EE415CA225011AE6BE1815B /* iOS */,
+				7BB0C9F9AF0AA36854555EBD /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EE06F1AFA3B56F7412F9AE71 /* Products */ = {
+		BC3F94E316A5DC199B48BE31 = {
 			isa = PBXGroup;
 			children = (
-				A3DBDAFAD8B89DE5E0110AE0 /* CaresoftVoiceDemo.app */,
-				8F6D5FB8E8CDA489E43040F4 /* ConsumerSwift.app */,
-				C43FD144D48A15A69D63D515 /* ConsumerObjC.app */,
-				23735C6EF3CEC19F47BBC5B9 /* CaresoftVoiceDemoTests.xctest */,
+				26B2805D94E97DFA205D67C8 /* Products */,
+				9327CBB02FE4A4DAE890C87F /* Frameworks */,
+				67BAF7CB9B8B61359D447BF1 /* Images.xcassets */,
+				AF783AC846463311ED2B6521 /* CustomCallScreen.swift */,
+				0D0156DDEC721A7BBD05A235 /* DemoApp.swift */,
+				CA886F310693CC32B77DA398 /* DemoComponents.swift */,
+				E95F8A159E22D43884265CCC /* DemoConfiguration.swift */,
+				0A719F98D5E57A411F101333 /* DemoRootView.swift */,
+				DA5D4BA70DE8A240C1370F7A /* DialerScreen.swift */,
+				E4182038B4870184D18A2F26 /* LoginScreen.swift */,
+				F9E064895A76A03AC3D9F29B /* SettingsScreen.swift */,
+				9466739C49ECB85EC2105C69 /* VoiceService.swift */,
+				22029BE25EEBF9EDC820EB23 /* App.swift */,
+				4EFE634FDACFDF252562A0D1 /* main.m */,
+				807376B84264F47B77BBD490 /* KeychainTests.swift */,
 			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7E9894057E9AF6DF1C231D77 /* CaresoftVoiceDemoTests */ = {
+		1E1DE42C1F072650FF472DF2 /* CaresoftVoiceDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDE9EA26ED8B1AD751A54889 /* Build configuration list for PBXNativeTarget "CaresoftVoiceDemoTests" */;
+			buildConfigurationList = 2575FAF905FA439DE774EF85 /* Build configuration list for PBXNativeTarget "CaresoftVoiceDemo" */;
 			buildPhases = (
-				0C9C7329DC8BAED68C8BC913 /* Sources */,
-				08181419D1BC3FB4B4D049BD /* Frameworks */,
-				8B6C46C5CA587093A6C5D0BC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E8F48F50BE1C812DDAF2B1CF /* PBXTargetDependency */,
-			);
-			name = CaresoftVoiceDemoTests;
-			packageProductDependencies = (
-				4904FC680C11A5A48E57A3A5 /* CaresoftVoice */,
-			);
-			productName = CaresoftVoiceDemoTests;
-			productReference = 23735C6EF3CEC19F47BBC5B9 /* CaresoftVoiceDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C1A61CE45A57E67815858B3E /* CaresoftVoiceDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A6C961AB35C8ADC1D6262C60 /* Build configuration list for PBXNativeTarget "CaresoftVoiceDemo" */;
-			buildPhases = (
-				89CC6B1200739F9F1DA049E1 /* Sources */,
-				C3AF857BA7647A4BAC114D7A /* Frameworks */,
-				CD5F7CE5BD0B26201A3E70DE /* Resources */,
+				FBD99B6D10A259CBBB167854 /* Sources */,
+				3D2E95F3BE1D190F594DB217 /* Frameworks */,
+				D258686F02D013239758CADF /* Resources */,
 			);
 			buildRules = (
 			);
@@ -189,40 +168,20 @@
 			);
 			name = CaresoftVoiceDemo;
 			packageProductDependencies = (
-				038096A441F5E770D56DB85E /* CaresoftVoice */,
-				AC6A07851054C04E1D3E5697 /* CaresoftVoiceUI */,
+				73B10EECA7FC1D64DFD0AD64 /* CaresoftVoice */,
+				6DFF5740ED9D8B51A04B3E2A /* CaresoftVoiceUI */,
 			);
 			productName = CaresoftVoiceDemo;
-			productReference = A3DBDAFAD8B89DE5E0110AE0 /* CaresoftVoiceDemo.app */;
+			productReference = 9AED060B0993DF3B0A208064 /* CaresoftVoiceDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FAE1A15924ABB26C35BFEA35 /* ConsumerObjC */ = {
+		4835179C1EA78F1153958F95 /* ConsumerSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F94D89FEB446F3A22F69538 /* Build configuration list for PBXNativeTarget "ConsumerObjC" */;
+			buildConfigurationList = 3290B7D902986ECE17C8B17B /* Build configuration list for PBXNativeTarget "ConsumerSwift" */;
 			buildPhases = (
-				0C34BFD9FD5288D864A8EC09 /* Sources */,
-				FB3927FCF7DDDE2E3EA1CF59 /* Frameworks */,
-				7C987D4EE00B5D5F53D79554 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ConsumerObjC;
-			packageProductDependencies = (
-				15DDDD6E38EE06D357D2C9B4 /* CaresoftVoice */,
-			);
-			productName = ConsumerObjC;
-			productReference = C43FD144D48A15A69D63D515 /* ConsumerObjC.app */;
-			productType = "com.apple.product-type.application";
-		};
-		FDEE689954BDFD30F2D01476 /* ConsumerSwift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6803D2423A2929031C6F7C7B /* Build configuration list for PBXNativeTarget "ConsumerSwift" */;
-			buildPhases = (
-				96B31ACF814B15EDDCB2D1BB /* Sources */,
-				99B3CE06D713F8A825F7C58D /* Frameworks */,
-				5D93775F922AE80DBE8B98E7 /* Resources */,
+				4CBF08283F46B7D57E1D128C /* Sources */,
+				2FD0918A5C82BD4ED7C8C27C /* Frameworks */,
+				E3BEB33C33D811C3CAE0D322 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -230,22 +189,63 @@
 			);
 			name = ConsumerSwift;
 			packageProductDependencies = (
-				20A0B7CA85269A334E6A95ED /* CaresoftVoice */,
+				4AE4B0152B73266B3CC5A201 /* CaresoftVoice */,
 			);
 			productName = ConsumerSwift;
-			productReference = 8F6D5FB8E8CDA489E43040F4 /* ConsumerSwift.app */;
+			productReference = D94878596C6F72A802B256E4 /* ConsumerSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4E64C2438073A901380123D3 /* CaresoftVoiceDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C82D6D7016E0E9B37E34EA00 /* Build configuration list for PBXNativeTarget "CaresoftVoiceDemoTests" */;
+			buildPhases = (
+				9EBAB18EEFC4D9ACFCC774A3 /* Sources */,
+				92594BB62D21A84E5AFB872F /* Frameworks */,
+				55346C071CBF067BFBB4A6F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F810F9E7C0504323C08F2E1D /* PBXTargetDependency */,
+			);
+			name = CaresoftVoiceDemoTests;
+			packageProductDependencies = (
+				8E63A4C09699B1A007F4F87E /* CaresoftVoice */,
+			);
+			productName = CaresoftVoiceDemoTests;
+			productReference = 72C4ED313FE619DC84082F41 /* CaresoftVoiceDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		931A4EA1F9A2C74A5B4E1A88 /* ConsumerObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DD12ABED849EA5E476EDD86 /* Build configuration list for PBXNativeTarget "ConsumerObjC" */;
+			buildPhases = (
+				9F1B0C06413651DBF4FAB1A4 /* Sources */,
+				2DBA9CD0A25358E49CC84715 /* Frameworks */,
+				1ADB861432BE268CADD1868B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConsumerObjC;
+			packageProductDependencies = (
+				4E6B63E81AD5364A44DFD76C /* CaresoftVoice */,
+			);
+			productName = ConsumerObjC;
+			productReference = 55239050A601FC00744E6036 /* ConsumerObjC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		28ADD0C9FD6BDEE8691CCED4 /* Project object */ = {
+		35E53F692A9B60E0E9D4B7B4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1600;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
-			buildConfigurationList = EA46D093C91492F4A75BA312 /* Build configuration list for PBXProject "CaresoftVoiceDemo" */;
+			buildConfigurationList = 5DD29E1353988CAB7924E6B5 /* Build configuration list for PBXProject "CaresoftVoiceDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -253,111 +253,182 @@
 				en,
 				Base,
 			);
-			mainGroup = 2131FF743F4FC1B6180015DD;
+			mainGroup = BC3F94E316A5DC199B48BE31;
 			packageReferences = (
-				946FB40D6B1E14EBCA496442 /* XCLocalSwiftPackageReference "sdk" */,
+				7FDFEE6ADCEF74A97C849DDA /* XCLocalSwiftPackageReference "CaresoftVoice" */,
 			);
-			productRefGroup = EE06F1AFA3B56F7412F9AE71 /* Products */;
+			productRefGroup = 26B2805D94E97DFA205D67C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C1A61CE45A57E67815858B3E /* CaresoftVoiceDemo */,
-				FDEE689954BDFD30F2D01476 /* ConsumerSwift */,
-				FAE1A15924ABB26C35BFEA35 /* ConsumerObjC */,
-				7E9894057E9AF6DF1C231D77 /* CaresoftVoiceDemoTests */,
+				1E1DE42C1F072650FF472DF2 /* CaresoftVoiceDemo */,
+				4835179C1EA78F1153958F95 /* ConsumerSwift */,
+				931A4EA1F9A2C74A5B4E1A88 /* ConsumerObjC */,
+				4E64C2438073A901380123D3 /* CaresoftVoiceDemoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5D93775F922AE80DBE8B98E7 /* Resources */ = {
+		1ADB861432BE268CADD1868B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C987D4EE00B5D5F53D79554 /* Resources */ = {
+		55346C071CBF067BFBB4A6F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B6C46C5CA587093A6C5D0BC /* Resources */ = {
+		D258686F02D013239758CADF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E304DDB65DE2E23960B51E36 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CD5F7CE5BD0B26201A3E70DE /* Resources */ = {
+		E3BEB33C33D811C3CAE0D322 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0EAB98514CF235E802D5AF3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0C34BFD9FD5288D864A8EC09 /* Sources */ = {
+		4CBF08283F46B7D57E1D128C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21AC900853EE42CE324F5A15 /* main.m in Sources */,
+				0DCC745210F42A8C6A8B0615 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0C9C7329DC8BAED68C8BC913 /* Sources */ = {
+		9EBAB18EEFC4D9ACFCC774A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4209B60E98CC31CE0D793BEC /* KeychainTests.swift in Sources */,
+				710FF17FB482E6D967C08C6A /* KeychainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		89CC6B1200739F9F1DA049E1 /* Sources */ = {
+		9F1B0C06413651DBF4FAB1A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5EC8A612B94B632F85B1E18 /* DemoApp.swift in Sources */,
-				DF3DC663F5B52581A4C737FD /* CustomCallScreen.swift in Sources */,
-				BF9A7D6ABA1367B400A56A4A /* DemoComponents.swift in Sources */,
-				31FA243D31C296515A95DA28 /* DemoConfiguration.swift in Sources */,
-				23DEDDBAD317224BE2068ECE /* DemoRootView.swift in Sources */,
-				7C89CC9C7339F40FB3456181 /* DialerScreen.swift in Sources */,
-				7B2765AF5876B3CF5EA29E2A /* LoginScreen.swift in Sources */,
-				D07B4317A20E05F0AE84DD6F /* SettingsScreen.swift in Sources */,
-				30DC15DB8E44B957A6AB2AAD /* VoiceService.swift in Sources */,
+				14E6D4A9A150826C608100D0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96B31ACF814B15EDDCB2D1BB /* Sources */ = {
+		FBD99B6D10A259CBBB167854 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2576513B23DBAE48A987F0DB /* App.swift in Sources */,
+				F245FBD1A6B6F9018EC20B69 /* CustomCallScreen.swift in Sources */,
+				C31B7B6CE9DB29452312CBE8 /* DemoApp.swift in Sources */,
+				FDAA633E2191EE96873D56FA /* DemoComponents.swift in Sources */,
+				FBD1C7D88274A24593FD3B85 /* DemoConfiguration.swift in Sources */,
+				28891CC61718635537DD7A2B /* DemoRootView.swift in Sources */,
+				E5652F72086DBD30C5FDE876 /* DialerScreen.swift in Sources */,
+				4E9D5977C21098319DC8DEDF /* LoginScreen.swift in Sources */,
+				EA3C14CC0B471DAF00969498 /* SettingsScreen.swift in Sources */,
+				D6B432752E076FCF1DA97A5F /* VoiceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E8F48F50BE1C812DDAF2B1CF /* PBXTargetDependency */ = {
+		F810F9E7C0504323C08F2E1D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CaresoftVoiceDemo;
-			target = C1A61CE45A57E67815858B3E /* CaresoftVoiceDemo */;
-			targetProxy = A80843D816911CEC507B6F34 /* PBXContainerItemProxy */;
+			target = 1E1DE42C1F072650FF472DF2 /* CaresoftVoiceDemo */;
+			targetProxy = 9573338DBC269A3E9A72DAEA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		05EB4F8790A97720AADBC880 /* Release */ = {
+		186B70A712A49549DF74D092 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APNS_ENTITLEMENT_ENVIRONMENT = development;
 				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				INFOPLIST_FILE = Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ConsumerObjC;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VOICE_PUSH_ENVIRONMENT = sandbox;
+			};
+			name = Release;
+		};
+		1F377DE87C1FB88846662098 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APNS_ENTITLEMENT_ENVIRONMENT = development;
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				INFOPLIST_FILE = Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ConsumerSwift;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VOICE_PUSH_ENVIRONMENT = sandbox;
+			};
+			name = Release;
+		};
+		5B34D0CAF77422DC320DE7CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APNS_ENTITLEMENT_ENVIRONMENT = development;
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = Config/Demo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				INFOPLIST_FILE = Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CaresoftVoiceDemo;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VOICE_PUSH_ENVIRONMENT = sandbox;
+			};
+			name = Debug;
+		};
+		850015363D06DEEBAC8549CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -409,174 +480,22 @@
 			};
 			name = Release;
 		};
-		35CC60BEC8E7AAB19E42A2CB /* Debug */ = {
+		B465D0D9B34938F2CC5F4D02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = arm64;
 				APNS_ENTITLEMENT_ENVIRONMENT = development;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Config/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.ConsumerSwift;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VOICE_PUSH_ENVIRONMENT = sandbox;
-			};
-			name = Debug;
-		};
-		3EEDF2A7750A89578EC76B2A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
 				ARCHS = arm64;
-				APNS_ENTITLEMENT_ENVIRONMENT = development;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Config/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.ConsumerObjC;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VOICE_PUSH_ENVIRONMENT = sandbox;
-			};
-			name = Release;
-		};
-		5879110A0AB887E6413E4C55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				APNS_ENTITLEMENT_ENVIRONMENT = development;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Config/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.ConsumerSwift;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VOICE_PUSH_ENVIRONMENT = sandbox;
-			};
-			name = Release;
-		};
-		B1956C54BFC50639D508DA19 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				APNS_ENTITLEMENT_ENVIRONMENT = development;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = Config/Demo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Config/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = VoiceDemo;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.CaresoftVoiceDemo;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VOICE_PUSH_ENVIRONMENT = sandbox;
-			};
-			name = Debug;
-		};
-		B3B43D8B9B3D6C71D2823CF4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				APNS_ENTITLEMENT_ENVIRONMENT = development;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				INFOPLIST_FILE = Config/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.ConsumerObjC;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VOICE_PUSH_ENVIRONMENT = sandbox;
-			};
-			name = Debug;
-		};
-		B6F80C1DB436E50AB3834497 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.CaresoftVoiceDemo;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CaresoftVoiceDemo.app/CaresoftVoiceDemo";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		D4A826F3DDC9A18943155263 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				APNS_ENTITLEMENT_ENVIRONMENT = development;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_ENTITLEMENTS = Config/Demo.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Config/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = VoiceDemo;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.1.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.CaresoftVoiceDemo;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -586,10 +505,86 @@
 			};
 			name = Release;
 		};
-		EFB215544095CB8C5C47116E /* Debug */ = {
+		C231306897D44AA4E6769E73 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APNS_ENTITLEMENT_ENVIRONMENT = development;
 				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				INFOPLIST_FILE = Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ConsumerObjC;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VOICE_PUSH_ENVIRONMENT = sandbox;
+			};
+			name = Debug;
+		};
+		CB9A28893523C91236935418 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CaresoftVoiceDemoTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CaresoftVoiceDemo.app/CaresoftVoiceDemo";
+			};
+			name = Debug;
+		};
+		CDEA302E168EF86E0AA34D22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CaresoftVoiceDemoTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CaresoftVoiceDemo.app/CaresoftVoiceDemo";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D360F3C8CFCFEDB824D3F64F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APNS_ENTITLEMENT_ENVIRONMENT = development;
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				INFOPLIST_FILE = Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ConsumerSwift;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VOICE_PUSH_ENVIRONMENT = sandbox;
+			};
+			name = Debug;
+		};
+		F02E4B8604421B15BEA861DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -648,67 +643,50 @@
 			};
 			name = Debug;
 		};
-		F472B6005C22009B836667E9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = arm64;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.CaresoftVoiceDemoTests;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CaresoftVoiceDemo.app/CaresoftVoiceDemo";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6803D2423A2929031C6F7C7B /* Build configuration list for PBXNativeTarget "ConsumerSwift" */ = {
+		2575FAF905FA439DE774EF85 /* Build configuration list for PBXNativeTarget "CaresoftVoiceDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5879110A0AB887E6413E4C55 /* Release */,
-				35CC60BEC8E7AAB19E42A2CB /* Debug */,
+				B465D0D9B34938F2CC5F4D02 /* Release */,
+				5B34D0CAF77422DC320DE7CD /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F94D89FEB446F3A22F69538 /* Build configuration list for PBXNativeTarget "ConsumerObjC" */ = {
+		3290B7D902986ECE17C8B17B /* Build configuration list for PBXNativeTarget "ConsumerSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3EEDF2A7750A89578EC76B2A /* Release */,
-				B3B43D8B9B3D6C71D2823CF4 /* Debug */,
+				1F377DE87C1FB88846662098 /* Release */,
+				D360F3C8CFCFEDB824D3F64F /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6C961AB35C8ADC1D6262C60 /* Build configuration list for PBXNativeTarget "CaresoftVoiceDemo" */ = {
+		4DD12ABED849EA5E476EDD86 /* Build configuration list for PBXNativeTarget "ConsumerObjC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4A826F3DDC9A18943155263 /* Release */,
-				B1956C54BFC50639D508DA19 /* Debug */,
+				186B70A712A49549DF74D092 /* Release */,
+				C231306897D44AA4E6769E73 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CDE9EA26ED8B1AD751A54889 /* Build configuration list for PBXNativeTarget "CaresoftVoiceDemoTests" */ = {
+		5DD29E1353988CAB7924E6B5 /* Build configuration list for PBXProject "CaresoftVoiceDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6F80C1DB436E50AB3834497 /* Release */,
-				F472B6005C22009B836667E9 /* Debug */,
+				F02E4B8604421B15BEA861DB /* Debug */,
+				850015363D06DEEBAC8549CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EA46D093C91492F4A75BA312 /* Build configuration list for PBXProject "CaresoftVoiceDemo" */ = {
+		C82D6D7016E0E9B37E34EA00 /* Build configuration list for PBXNativeTarget "CaresoftVoiceDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFB215544095CB8C5C47116E /* Debug */,
-				05EB4F8790A97720AADBC880 /* Release */,
+				CDEA302E168EF86E0AA34D22 /* Release */,
+				CB9A28893523C91236935418 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -716,34 +694,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		946FB40D6B1E14EBCA496442 /* XCLocalSwiftPackageReference "sdk" */ = {
+		7FDFEE6ADCEF74A97C849DDA /* XCLocalSwiftPackageReference "CaresoftVoice" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../packages/CaresoftVoice;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		038096A441F5E770D56DB85E /* CaresoftVoice */ = {
+		4AE4B0152B73266B3CC5A201 /* CaresoftVoice */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CaresoftVoice;
 		};
-		15DDDD6E38EE06D357D2C9B4 /* CaresoftVoice */ = {
+		4E6B63E81AD5364A44DFD76C /* CaresoftVoice */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CaresoftVoice;
 		};
-		20A0B7CA85269A334E6A95ED /* CaresoftVoice */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CaresoftVoice;
-		};
-		4904FC680C11A5A48E57A3A5 /* CaresoftVoice */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CaresoftVoice;
-		};
-		AC6A07851054C04E1D3E5697 /* CaresoftVoiceUI */ = {
+		6DFF5740ED9D8B51A04B3E2A /* CaresoftVoiceUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CaresoftVoiceUI;
 		};
+		73B10EECA7FC1D64DFD0AD64 /* CaresoftVoice */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CaresoftVoice;
+		};
+		8E63A4C09699B1A007F4F87E /* CaresoftVoice */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CaresoftVoice;
+		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 28ADD0C9FD6BDEE8691CCED4 /* Project object */;
+	rootObject = 35E53F692A9B60E0E9D4B7B4 /* Project object */;
 }

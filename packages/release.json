@@ -1,12 +1,12 @@
 {
-  "version": "1.1.0",
-  "archive": "CaresoftVoice-1.1.0-binary.zip",
-  "bytes": 67731699,
-  "sha256": "5e21ce5eedc92aeaa6111743be27d39df0ed62b40f62aec7000e47ce3439aa5c",
+  "version": "1.2.0-libre.1",
+  "archive": "CaresoftVoice-1.2.0-libre.1-binary.zip",
+  "bytes": 67335667,
+  "sha256": "633503a8d3c52ea5866838ccfcd747db2172565e7b34dff6b8946cefac5d3216",
   "source": {
     "repository": "https://github.com/caresoftgit/cs_ios_voice_sdk",
-    "commit": "eb1b852fed646a63cabef908ff174af92f6dc081",
-    "tag": "v1.1.0"
+    "commit": "9e9beec3d087d5855f39b618b4063f6a1bb4f5e9",
+    "branch": "trial/ios-libre-1.2.0"
   },
   "build": {
     "xcode": "26.4",
@@ -17,21 +17,43 @@
     ],
     "simulatorArchitectures": [
       "arm64"
-    ]
+    ],
+    "signaling": {
+      "engine": "libre",
+      "version": "4.0.0",
+      "commit": "09bb0afdfaf1aeac21c0979f3857617a88307f3a"
+    }
   },
   "verification": {
     "date": "2026-11-12",
     "portableSwiftTests": {
-      "tests": 75,
+      "tests": 78,
       "failures": 0
     },
     "iosSimulatorTests": {
-      "tests": 104,
+      "tests": 113,
       "failures": 0
     },
-    "nativeCompatibilityCases": 12,
-    "nativeParityCases": 11,
-    "nativeBridgeTransportAndGate": "passed",
+    "nativeControlledPeer": {
+      "commands": 91,
+      "testProcesses": 87,
+      "failures": 0,
+      "productionSourcesUnchanged": true,
+      "caseCounts": {
+        "compatibility": 12,
+        "parity": 11,
+        "android_contract": 24,
+        "native_contract": 29,
+        "ios-session": 6,
+        "session": 3
+      },
+      "sourceSha256": {
+        "Native/Libre/src/CSLibre.c": "0ca29abaed7fe0b0fa66e69464a87dfa0098fbbfde4b7d305a2d98eb478638d6",
+        "Native/Libre/include/CSLibre.h": "d3e7659c6493f9aa358962a91fe1b86b562e2b5074e628d792b7c295d821e66f",
+        "Native/Libre/patches/0001-external-wss.patch": "38a36c17d21c42d650a8e2cbdb50c0acb0c518c55dbba32ce620d20a18c44684",
+        "Native/Libre/patches/0002-cross-build-without-openssl.patch": "7034fe4d5ec72c90cde14bac048905edc0503c79d12bef7b5dc5130f24b8ce07"
+      }
+    },
     "deviceAndSimulatorArchives": "passed",
     "binarySwiftUIAndObjectiveCConsumer": "passed",
     "cleanDeliverySetup": "passed",
@@ -41,8 +63,25 @@
     "packageSymbolsInterfacesAndSlices": "passed",
     "documentationLinksAndHTML": "passed",
     "demoConfigurationChecks": "passed",
-    "demoSwiftFormat": "passed",
-    "independentReleaseReview": "no material findings",
-    "fullSignedDeviceAcceptance": "not performed for this packaged release"
-  }
+    "independentReview": "two material findings reproduced RED then fixed; complete suites passed",
+    "fullSignedDeviceAcceptance": "not performed for this trial"
+  },
+  "vendorSha256": {
+    "CaresoftVoice": {
+      "ios-arm64": "8181454b6902a1ccccf7a42e1fdbdb99221483a39eb4df4c3005013782dfd09a",
+      "ios-arm64-simulator": "d98fd6bcb9635222e675432715c0e098238aad22f74539de8e0618e849aca892"
+    },
+    "WebRTC": {
+      "ios-arm64_x86_64-simulator": "4657f3ad559d056971aea5cde07e5edb239d7ae413a03cadae15eadb63214314",
+      "ios-arm64": "68c0c7af7dce69a42478be60a60d1976bae15a41e3323742339fcaa345ab834a"
+    },
+    "CSLibre": {
+      "ios-arm64-simulator/libCSLibre.a": "532f60b874b95be11c630222fceb34770efbfb632a1417245dae87c1ac6fc01c",
+      "ios-arm64/libCSLibre.a": "87ceb8e2097769ab00434165660affea1ff6e1d28a5f2359f56440aa5bf1dedf"
+    }
+  },
+  "acceptanceLimits": [
+    "Signed iPhone/APNs/live-backend, TURN-only, hardware routes and network migration were not accepted for this trial.",
+    "Timer-generated refresh validates SDP syntax; arbitrary SDP changes in refresh answers are outside acceptance."
+  ]
 }

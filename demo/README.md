@@ -1,6 +1,6 @@
 # Chạy ứng dụng mẫu iOS
 
-Ứng dụng mẫu dùng SDK **1.1.0** từ package đi kèm; không cần thay đổi mã gọi API khi cập nhật từ 1.0.0.
+Ứng dụng mẫu dùng SDK **1.2.0-libre.1** từ package đi kèm; không cần thay đổi mã gọi API khi cập nhật từ 1.0.0.
 
 ## 1. Cài SDK và mở project
 

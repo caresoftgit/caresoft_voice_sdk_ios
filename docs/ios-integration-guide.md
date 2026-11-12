@@ -1,6 +1,6 @@
 # Caresoft Voice SDK — Hướng dẫn tích hợp iOS
 
-**1.1.0 · iOS 15.1+ · 12/11/2026**
+**1.2.0-libre.1 · iOS 15.1+ · 12/11/2026**
 
 Hướng dẫn cài đặt SDK, cấu hình ứng dụng và triển khai cuộc gọi trên iOS bằng Swift hoặc Objective-C.
 
@@ -119,7 +119,7 @@ Riêng ứng dụng mẫu đọc `VoicePushEnvironment` từ Info.plist để th
 
 ## 4. Cài SDK
 
-Gói binary 1.1.0 yêu cầu iOS 15.1 trở lên. Binary được build bằng Xcode 26.4 / Swift 6.3; sử dụng toolchain tương thích. Nếu gặp lỗi compiler không đọc được module, liên hệ Caresoft để được cung cấp gói phù hợp.
+Gói binary 1.2.0-libre.1 yêu cầu iOS 15.1 trở lên. Binary được build bằng Xcode 26.4 / Swift 6.3; sử dụng toolchain tương thích. Nếu gặp lỗi compiler không đọc được module, liên hệ Caresoft để được cung cấp gói phù hợp.
 
 ```sh
 git clone https://github.com/caresoftgit/caresoft_voice_sdk_ios.git
