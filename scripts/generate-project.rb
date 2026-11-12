@@ -31,8 +31,11 @@ project.root_object.package_references << package
  end
  target.build_configurations.each do |config|
   settings=config.build_settings
+  settings['ARCHS']='arm64'
   settings['PRODUCT_BUNDLE_IDENTIFIER']='com.example.'+name
   settings['SWIFT_VERSION']='5.0'
+  settings['MARKETING_VERSION']='1.1.0'
+  settings['CURRENT_PROJECT_VERSION']='2'
   settings['INFOPLIST_FILE']='Config/Info.plist'
   settings['TARGETED_DEVICE_FAMILY']='1,2'
   settings['CODE_SIGN_STYLE']='Automatic'

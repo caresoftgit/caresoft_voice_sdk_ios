@@ -1,4 +1,4 @@
-# API reference — 1.0.0
+# API reference — 1.1.0
 
 Core module `CaresoftVoice`; UI module `CaresoftVoiceUI`. Public client/call/event APIs are MainActor isolated. Objective-C callbacks/delegates also run on main. Swift errors are `VoiceError`; Objective-C errors use domain `CaresoftVoice`, numeric code 1 and stable `userInfo["voiceCode"]`, `operation`, `retryable`, optional `callId`. Do not branch on numeric code 1.
 
@@ -55,18 +55,18 @@ Core module `CaresoftVoice`; UI module `CaresoftVoiceUI`. Public client/call/eve
 | Method | Behavior |
 |---|---|
 | `start()` | Outgoing/new only, shared start task; checks mobile + microphone |
-| `answer()` | Incoming ringing/connecting only; shared task; resolves after SIP confirmed |
-| `reject()` | Incoming only; local ended immediately, action 8 attempted independently of SIP init |
+| `answer()` | Incoming ringing/connecting only; shared task; resolves when the call is confirmed |
+| `reject()` | Incoming only; local ended immediately, server rejection attempted even if call initialization is incomplete |
 | `hangup()` | Local ended immediately; repeated end shares result |
 | `setMuted(Bool)` | Local mute first; failure stays muted and native CallKit mute reflects local success, while server uncertainty is emitted. Unmute only active and after ACK |
 | `setHeld(Bool)` | Active only; snapshot changes only after ACK; no local optimistic hold |
-| `sendDTMF(String)` | Active, 1...128 characters 0-9/A-D/*/#; INFO dtmf-relay 100ms, 500ms gap |
+| `sendDTMF(String)` | Active, 1...128 characters 0-9/A-D/*/#; 100ms tone duration, 500ms gap |
 | `getAudioRoutes()` | Real AVAudioSession route inventory; no invented Bluetooth device |
 | `setAudioRoute(id:)` | Requires active audio and available route; OS may reject; use returned inventory |
 | `getStats()` | Real media counters only; absent fields remain nil |
 | `getSnapshot()` / `observe(handler)` | Safe current state and future events |
 
-All call operations above except snapshot/observe are async throwing. `reject`/`hangup` return EndResult(localEnded, serverAcknowledged). Local completion is not proof of server acceptance. BYE ACK depends on matching 2xx; CANCEL/request-send alone is not acknowledgment.
+All call operations above except snapshot/observe are async throwing. `reject`/`hangup` return EndResult(localEnded, serverAcknowledged). Local completion is not proof of server acceptance. Check serverAcknowledged separately; sending an end request alone does not confirm server acceptance.
 
 `CallSnapshot`: id (stable local UUID), direction, remote(number/displayName), serverCallId optional, state, mediaState, muted, held, endReason, createdAt, connectedAt, endedAt. States new/dialing/ringing/connecting/active/ended. Ended is terminal exactly once. Media states notStarted/connecting/connected/disconnected/failed.
 
@@ -88,7 +88,7 @@ Shared start/answer/connect tasks have operation lifetime. Canceling one caller 
 
 `CaresoftVoicePush.shared.start(appName:)`, `onToken`, `onInvalidated`, `token`, `receive(_:completion:)`. Start in AppDelegate before UI. Host already owning PKPushRegistry may forward instead. Never start two registries. Native report completion is one-shot.
 
-Cancellation payload action6 (numeric or string) with uuid is decoded before incoming validation and leaves a tombstone; it does not need session/SIP fields. Incoming payload: uuid valid UUID v1-v5, sessionId nonempty, timeoutAt2 milliseconds in future. Optional domain/appId must match. caller/callingNumber/phoneNumber and callerName/callingName become filtered display metadata; SIP fields stay private. Legacy string payload must be JSON-decoded by host before `[AnyHashable:Any]` forwarding.
+Forward the complete push dictionary unchanged to the SDK. If the host receives a legacy JSON string, decode it into `[AnyHashable:Any]` before forwarding. The SDK validates the call identity, expiry and application scope, filters display metadata and handles duplicate/canceled calls. Do not construct or log call credentials.
 
 `C2CTokenSigner.create(agentId:voiceAPIToken:expired:calloutId:)` throws, returns HS256 JWT. This does not authenticate the app; return result through tokenProvider. Never embed signing secret in a released client.
 
@@ -108,6 +108,6 @@ Use generated selector `initWithConfiguration:error:tokenProvider:`. Token provi
 
 ## Safe error codes
 
-The following list is extracted from SDK sources by the documentation generator. Codes are strings, not HTTP status or SIP numeric status. `retryable` is true only for NETWORK_UNAVAILABLE/TIMEOUT/SERVER_ERROR; this never grants permission to replay an already-sent mutation.
+Error codes are strings exposed through VoiceError; do not interpret them as HTTP status codes. `retryable` is true only for NETWORK_UNAVAILABLE/TIMEOUT/SERVER_ERROR; this never grants permission to replay an already-sent mutation.
 
-`AUDIO_NOT_ACTIVE`, `AUTH_REQUIRED`, `BACKEND_CONTRACT_REQUIRED`, `CALLKIT_FAILED`, `CALL_EXPIRED`, `CALL_IN_PROGRESS`, `CALL_MISMATCH`, `CLIENT_ALREADY_EXISTS`, `CLIENT_DISPOSED`, `DEVICE_NOT_MOBILE`, `INSECURE_ENDPOINT`, `INVALID_ARGUMENT`, `INVALID_PUSH`, `INVALID_PUSH_CONFIG`, `INVALID_RESPONSE`, `INVALID_SIP`, `INVALID_STATE`, `INVALID_STORED_SESSION`, `LOCAL_CLEANUP_FAILED`, `MEDIA_FAILED`, `MEDIA_NOT_READY`, `NETWORK_UNAVAILABLE`, `OPERATION_CANCELED`, `OPERATION_FAILED`, `OPERATION_IN_PROGRESS`, `PERMISSION_DENIED`, `PUSH_NOT_REGISTERED`, `PUSH_SCOPE_MISMATCH`, `REQUEST_REJECTED`, `ROUTE_UNAVAILABLE`, `SERVER_ERROR`, `SIP_AUTH_UNSUPPORTED`, `SIP_REFRESH_FAILED`, `SIP_REGISTRATION_FAILED`, `STORAGE_FAILED`, `TIMEOUT`, `UNSUPPORTED_PLATFORM`
+`AUDIO_NOT_ACTIVE`, `AUTH_REQUIRED`, `BACKEND_CONTRACT_REQUIRED`, `CALLKIT_FAILED`, `CALL_EXPIRED`, `CALL_IN_PROGRESS`, `CALL_MISMATCH`, `CLIENT_ALREADY_EXISTS`, `CLIENT_DISPOSED`, `DEVICE_NOT_MOBILE`, `INSECURE_ENDPOINT`, `INVALID_ARGUMENT`, `INVALID_PUSH`, `INVALID_PUSH_CONFIG`, `INVALID_RESPONSE`, `INVALID_SIP`, `INVALID_STATE`, `INVALID_STORED_SESSION`, `LOCAL_CLEANUP_FAILED`, `MEDIA_FAILED`, `MEDIA_NOT_READY`, `NETWORK_UNAVAILABLE`, `OPERATION_CANCELED`, `OPERATION_FAILED`, `OPERATION_IN_PROGRESS`, `PERMISSION_DENIED`, `PJSIP_ERROR`, `PUSH_NOT_REGISTERED`, `PUSH_SCOPE_MISMATCH`, `REQUEST_REJECTED`, `ROUTE_UNAVAILABLE`, `SERVER_ERROR`, `SIP_AUTH_UNSUPPORTED`, `SIP_REFRESH_FAILED`, `SIP_REGISTRATION_FAILED`, `SIP_REJECTED`, `STORAGE_FAILED`, `TIMEOUT`, `UNSUPPORTED_PLATFORM`

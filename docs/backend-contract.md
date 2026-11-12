@@ -34,4 +34,4 @@ Cấu hình khóa APNs `.p8`, Key ID, Team ID và Bundle ID ở phía server. Kh
 
 ## Kết nối mạng
 
-REST và dịch vụ cấp token sử dụng HTTPS; SIP dùng WSS với chứng chỉ hợp lệ và TLS tương thích ATS. ICE/TURN credential nên có thời hạn và chỉ cấp cho người dùng được xác thực. Kiểm tra kết nối trên Wi-Fi và mạng di động; tránh cài thêm một bản WebRTC khác trong cùng ứng dụng.
+API và dịch vụ cấp token phải dùng HTTPS với chứng chỉ hợp lệ. Cấu hình thông tin kết nối cuộc gọi do Caresoft cung cấp qua `VoiceOptions.iceServers`; credential nên có thời hạn và chỉ cấp cho người dùng được xác thực. Kiểm tra trên Wi-Fi và mạng di động với cấu hình thực tế của ứng dụng.

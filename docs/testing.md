@@ -23,13 +23,13 @@ Chạy trên iPhone có Bundle ID, provisioning, APNs và backend của ứng d�
 | AUTH_REQUIRED | Kiểm tra phiên người dùng và cấp lại C2C token qua backend |
 | INVALID_PUSH_CONFIG | Đối chiếu App ID, Bundle ID, APNs key và environment trên app/server |
 | DEVICE_NOT_MOBILE | Chọn thiết bị mobile trước khi gọi |
-| Không có tiếng | Kiểm tra quyền microphone, audio route, ICE/TURN và firewall |
+| Không có tiếng | Kiểm tra quyền microphone, audio route, cấu hình kết nối và mạng |
 | SIP_403 / SIP_404 | Kiểm tra quyền agent, số đích và tuyến gọi trên tổng đài |
 | SIP_480 / SIP_486 | Đích tạm không sẵn sàng / máy bận |
-| SIP_488 | Kiểm tra tương thích SDP/codec với tổng đài |
-| TIMEOUT / controlMetadata | Kiểm tra kết nối control; không tự gửi lại thao tác thay đổi trạng thái đã gửi |
+| SIP_488 | Liên hệ Caresoft kiểm tra tuyến gọi với mã lỗi và thời điểm |
+| TIMEOUT / controlMetadata | Kiểm tra kết nối mạng và tên operation; không tự gửi lại thao tác thay đổi trạng thái đã gửi |
 | LOCAL_CLEANUP_FAILED | Kiểm tra kết quả xóa Keychain; thông báo cho người dùng nếu đăng xuất chưa hoàn tất |
 
 Trong ứng dụng của bạn, đặt `AppPushConfig.environment` và `PushRegistration.environment` cùng giá trị: `.sandbox` cho development, `.production` cho TestFlight/App Store. Riêng ứng dụng mẫu đọc custom Info.plist key `VoicePushEnvironment` để cấu hình các giá trị này; SDK không tự đọc key đó. Export lại provisioning không tự đổi cấu hình environment.
 
-Khi liên hệ hỗ trợ, gửi phiên bản SDK, phiên bản iOS, thiết bị, thời điểm, mã lỗi và các bước tái hiện. Không gửi credential, khóa ký, SDP hoặc nội dung cuộc gọi.
+Khi liên hệ hỗ trợ, gửi phiên bản SDK, phiên bản iOS, thiết bị, thời điểm, mã lỗi và các bước tái hiện. Không gửi credential, khóa ký, nội dung cuộc gọi.

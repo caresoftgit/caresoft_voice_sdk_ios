@@ -1,6 +1,48 @@
 {
-  "version": "1.0.0",
-  "archive": "CaresoftVoice-1.0.0-binary.zip",
-  "bytes": 62892564,
-  "sha256": "ae1fd451d8549db61eaec06a0abcb11d50eec4dfe1d94d55baf1501599fc3610"
+  "version": "1.1.0",
+  "archive": "CaresoftVoice-1.1.0-binary.zip",
+  "bytes": 67731699,
+  "sha256": "5e21ce5eedc92aeaa6111743be27d39df0ed62b40f62aec7000e47ce3439aa5c",
+  "source": {
+    "repository": "https://github.com/caresoftgit/cs_ios_voice_sdk",
+    "commit": "eb1b852fed646a63cabef908ff174af92f6dc081",
+    "tag": "v1.1.0"
+  },
+  "build": {
+    "xcode": "26.4",
+    "swift": "6.3",
+    "minimumIOS": "15.1",
+    "deviceArchitectures": [
+      "arm64"
+    ],
+    "simulatorArchitectures": [
+      "arm64"
+    ]
+  },
+  "verification": {
+    "date": "2026-11-12",
+    "portableSwiftTests": {
+      "tests": 75,
+      "failures": 0
+    },
+    "iosSimulatorTests": {
+      "tests": 104,
+      "failures": 0
+    },
+    "nativeCompatibilityCases": 12,
+    "nativeParityCases": 11,
+    "nativeBridgeTransportAndGate": "passed",
+    "deviceAndSimulatorArchives": "passed",
+    "binarySwiftUIAndObjectiveCConsumer": "passed",
+    "cleanDeliverySetup": "passed",
+    "cleanDemoBuild": "passed",
+    "cleanSwiftConsumerBuild": "passed",
+    "cleanObjectiveCConsumerBuild": "passed",
+    "packageSymbolsInterfacesAndSlices": "passed",
+    "documentationLinksAndHTML": "passed",
+    "demoConfigurationChecks": "passed",
+    "demoSwiftFormat": "passed",
+    "independentReleaseReview": "no material findings",
+    "fullSignedDeviceAcceptance": "not performed for this packaged release"
+  }
 }
