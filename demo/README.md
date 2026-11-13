@@ -29,11 +29,24 @@ Sau khi đăng nhập, chọn thiết bị mobile và trạng thái sẵn sàng 
 
 Ứng dụng mẫu minh họa UI có sẵn và UI tùy chỉnh, trả lời/kết thúc, mute/hold, DTMF, chọn audio route và số gọi ra. Xem [hướng dẫn tích hợp](../docs/ios-integration-guide.md) để áp dụng vào app của bạn và [checklist](../docs/testing.md) để kiểm tra trên iPhone.
 
-## Build trên CI không signing
+## Build để chạy trên Simulator
+
+Bật ad-hoc signing để Xcode cấp entitlement cho Keychain; không cần provisioning của iPhone thật:
 
 ```sh
 xcodebuild -project demo/CaresoftVoiceDemo.xcodeproj -scheme CaresoftVoiceDemo \
-  -destination 'generic/platform=iOS Simulator' ARCHS=arm64 CODE_SIGNING_ALLOWED=NO build
+  -destination 'generic/platform=iOS Simulator' ARCHS=arm64 \
+  CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=- build
 ```
 
 Tham số `ARCHS=arm64` áp dụng cho cả package dependencies khi dùng destination generic. Dùng cùng tham số với các scheme consumer.
+
+`CODE_SIGNING_ALLOWED=NO` chỉ dùng để kiểm tra biên dịch trên CI. Không cài bản đó để đăng nhập: app thiếu entitlement `application-identifier`/`keychain-access-groups`, khiến Keychain trả `-34018` và SDK báo `STORAGE_FAILED`. Build lại với signing bật rồi cài đè; không cần xóa phiên đã lưu.
+
+Kiểm thử Keychain của app dùng một session giả với namespace riêng, xác minh đọc, ghi, cập nhật và xóa qua SDK:
+
+```sh
+xcodebuild -project demo/CaresoftVoiceDemo.xcodeproj -scheme CaresoftVoiceDemo \
+  -destination 'platform=iOS Simulator,id=<UUID>' ARCHS=arm64 \
+  CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=- test
+```
