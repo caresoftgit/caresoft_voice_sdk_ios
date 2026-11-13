@@ -19,6 +19,8 @@ Trong **Signing & Capabilities**, chọn Apple Team và thay Bundle Identifier b
 
 Debug dùng `VoicePushEnvironment=sandbox`; Release/TestFlight dùng `production`. Provisioning và cấu hình APNs phía Caresoft phải trùng môi trường này. `Config/Example.xcconfig` là mẫu tham khảo; project không tự nạp file đó.
 
+Backend vẫn kiểm tra App ID, Bundle ID và environment khi đăng nhập trên Simulator, dù Simulator chưa nhận VoIP push. Với `INVALID_PUSH_CONFIG`, đối chiếu `PRODUCT_BUNDLE_IDENTIFIER` và `VOICE_PUSH_ENVIRONMENT` của target với cấu hình iOS đã đăng ký cho App ID. Bundle mặc định `com.example.CaresoftVoiceDemo` là placeholder; thay bằng bundle thực tế trước khi thử đăng nhập. Nếu môi trường test chỉ đăng ký `production`, đặt cấu hình Simulator tương ứng và `APNS_ENTITLEMENT_ENVIRONMENT=production` cho Simulator. iPhone thật cần provisioning/APNs đúng môi trường; xem [hướng dẫn push](../docs/ios-integration-guide.md).
+
 ## 3. Đăng nhập
 
 Nhập API URL, domain, App ID và thông tin ICE/TURN được cấp. Chọn **C2C token** để dùng token do backend cấp, hoặc endpoint HTTPS cấp token theo cấu hình ứng dụng. Không nhúng Voice API signing secret hoặc khóa APNs `.p8` vào ứng dụng phát hành.
