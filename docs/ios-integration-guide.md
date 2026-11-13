@@ -1,6 +1,6 @@
 # Caresoft Voice SDK — Hướng dẫn tích hợp iOS
 
-**1.2.0-libre.1 · iOS 15.1+ · 12/11/2026**
+**1.2.0 · iOS 15.1+ · 13/11/2026**
 
 Hướng dẫn cài đặt SDK, cấu hình ứng dụng và triển khai cuộc gọi trên iOS bằng Swift hoặc Objective-C.
 
@@ -119,10 +119,10 @@ Riêng ứng dụng mẫu đọc `VoicePushEnvironment` từ Info.plist để th
 
 ## 4. Cài SDK
 
-Gói binary 1.2.0-libre.1 yêu cầu iOS 15.1 trở lên. Binary được build bằng Xcode 26.4 / Swift 6.3; sử dụng toolchain tương thích. Nếu gặp lỗi compiler không đọc được module, liên hệ Caresoft để được cung cấp gói phù hợp.
+Gói binary 1.2.0 yêu cầu iOS 15.1 trở lên. Binary được build bằng Xcode 26.4 / Swift 6.3; sử dụng toolchain tương thích. Nếu gặp lỗi compiler không đọc được module, liên hệ Caresoft để được cung cấp gói phù hợp.
 
 ```sh
-git clone https://github.com/caresoftgit/caresoft_voice_sdk_ios.git
+git clone --branch v1.2.0 https://github.com/caresoftgit/caresoft_voice_sdk_ios.git
 cd caresoft_voice_sdk_ios
 python3 scripts/setup-sdk.py
 ```
@@ -136,9 +136,9 @@ python3 scripts/setup-sdk.py
 
 ## 5. Xcode và signing
 
-App host bật Push Notifications và Background Modes: Voice over IP, Audio. Thêm `NSMicrophoneUsageDescription` rõ mục đích. Chọn provisioning với bundle ID trùng cấu hình Caresoft/APNs. Xin quyền microphone trong UI foreground trước khi cần trả lời; `checkReadiness()` chỉ đọc trạng thái, không tự hiện hộp thoại.
+App host bật Push Notifications và Background Modes: Voice over IP, Audio. Thêm `NSMicrophoneUsageDescription` rõ mục đích và giữ `NSCameraUsageDescription` như template demo để đáp ứng kiểm tra quyền riêng tư khi upload. Thành phần gọi điện có tham chiếu API camera, dù demo chỉ gọi thoại và không yêu cầu quyền camera. Thiếu mô tả camera có thể gây lỗi `90683` từ Apple. Chọn provisioning với bundle ID trùng cấu hình Caresoft/APNs. Xin quyền microphone trong UI foreground trước khi cần trả lời; `checkReadiness()` chỉ đọc trạng thái, không tự hiện hộp thoại.
 
-Simulator dùng để build/test logic và media offer; không nghiệm thu VoIP push, audio route hoặc cuộc gọi CallKit thật. Không có fallback âm thầm bỏ CallKit trên máy thật.
+Simulator dùng để build/test logic và media offer; không nghiệm thu VoIP push, audio route hoặc cuộc gọi CallKit thật. Không có fallback âm thầm bỏ CallKit trên máy thật. Khi cài demo để đăng nhập trên Simulator, bật ad-hoc signing (`CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=-`) để Keychain có entitlement; xem [hướng dẫn demo](../demo/README.md#build-để-chạy-trên-simulator).
 
 ## 6. PushKit trước UI
 
@@ -274,6 +274,8 @@ Chạy ứng dụng trên iPhone có provisioning và APNs đúng môi trường
 |---|---|
 | AUTH_REQUIRED | Session/C2C đã hết hạn hoặc server revoke; xin token qua backend |
 | INVALID_PUSH_CONFIG | App/bundle/environment/tenant và cấu hình Caresoft |
+| STORAGE_FAILED | Kiểm tra signing và entitlement Keychain; không cài bản Simulator build với signing tắt |
+| SIP_ENGINE_ERROR | Kiểm tra kết nối SIP WebSocket/TLS; xem [hướng dẫn cấu hình TLS theo host](../demo/README.md#sip_engine_error-trên-máy-chủ-test) |
 | DEVICE_NOT_MOBILE | Chọn mobile có chủ đích rồi đọc lại agentStatus |
 | PERMISSION_DENIED | Microphone hoặc REST 403; không tự kết luận mất phiên |
 | TIMEOUT | Kiểm tra mạng và tên operation; không tự gửi lại thao tác thay đổi trạng thái đã gửi |

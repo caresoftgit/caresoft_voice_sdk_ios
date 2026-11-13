@@ -45,3 +45,24 @@ final class CallingLineTests: XCTestCase {
       try DemoCallingLine.parse(Data(#"{"res":{"lstCalloutPermission":[]}}"#.utf8)), [])
   }
 }
+
+final class SIPConnectivityTests: XCTestCase {
+  func testSIPWebSocketHandshake() async throws {
+    try XCTSkipUnless(ProcessInfo.processInfo.environment["CARESOFT_SIP_PREFLIGHT"] == "1",
+      "Opt-in live handshake only; no SIP registration, credentials or phone call.")
+    let config = URLSessionConfiguration.ephemeral
+    config.timeoutIntervalForRequest = 12
+    config.timeoutIntervalForResource = 15
+    let session = URLSession(configuration: config)
+    let socket = session.webSocketTask(with: URL(string: "wss://test.caresoft.vn:10445")!, protocols: ["sip"])
+    defer { socket.cancel(with: .normalClosure, reason: nil); session.invalidateAndCancel() }
+    socket.resume()
+    try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+      socket.sendPing { error in
+        if let error { continuation.resume(throwing: error) }
+        else { continuation.resume() }
+      }
+    }
+    XCTAssertEqual(socket.response.flatMap { ($0 as? HTTPURLResponse)?.statusCode }, 101)
+  }
+}

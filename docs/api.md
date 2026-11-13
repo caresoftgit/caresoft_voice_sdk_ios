@@ -1,4 +1,4 @@
-# API reference — 1.2.0-libre.1
+# API reference — 1.2.0
 
 Core module `CaresoftVoice`; UI module `CaresoftVoiceUI`. Public client/call/event APIs are MainActor isolated. Objective-C callbacks/delegates also run on main. Swift errors are `VoiceError`; Objective-C errors use domain `CaresoftVoice`, numeric code 1 and stable `userInfo["voiceCode"]`, `operation`, `retryable`, optional `callId`. Do not branch on numeric code 1.
 

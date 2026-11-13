@@ -43,7 +43,10 @@ project.root_object.package_references << package
   settings['APNS_ENTITLEMENT_ENVIRONMENT']='development'
   if name == 'CaresoftVoiceDemo'
    settings['ASSETCATALOG_COMPILER_APPICON_NAME']='AppIcon'
-   settings['VOICE_PUSH_ENVIRONMENT']='production' if config.name == 'Release'
+   if config.name == 'Release'
+    settings['VOICE_PUSH_ENVIRONMENT']='production'
+    settings['APNS_ENTITLEMENT_ENVIRONMENT']='production'
+   end
    settings['PRODUCT_BUNDLE_IDENTIFIER']='com.example.CaresoftVoiceDemo'
    settings['CODE_SIGN_ENTITLEMENTS']='Config/Demo.entitlements'
   end

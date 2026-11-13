@@ -21,7 +21,10 @@ Chạy trên iPhone có Bundle ID, provisioning, APNs và backend của ứng d�
 | Xcode không tìm thấy package | Chạy `python3 scripts/setup-sdk.py`; kiểm tra local package trỏ đến `packages/CaresoftVoice` |
 | Không đọc được Swift module | Dùng toolchain tương thích với Xcode 26.4 / Swift 6.3 hoặc liên hệ Caresoft |
 | AUTH_REQUIRED | Kiểm tra phiên người dùng và cấp lại C2C token qua backend |
+| STORAGE_FAILED | Kiểm tra entitlement Keychain; bản Simulator cài để đăng nhập phải bật ad-hoc signing, xem [demo](../demo/README.md#build-để-chạy-trên-simulator) |
+| 90683 khi upload | Giữ `NSCameraUsageDescription` trong Info.plist của app host; chạy script kiểm tra archive trước upload |
 | INVALID_PUSH_CONFIG | Đối chiếu App ID, Bundle ID, APNs key và environment trên app/server |
+| SIP_ENGINE_ERROR | Kiểm tra kết nối SIP WebSocket/TLS trong system log; nếu có `-1200` trên endpoint test, xem [cấu hình ATS theo host](../demo/README.md#sip_engine_error-trên-máy-chủ-test). |
 | DEVICE_NOT_MOBILE | Chọn thiết bị mobile trước khi gọi |
 | Không có tiếng | Kiểm tra quyền microphone, audio route, cấu hình kết nối và mạng |
 | SIP_403 / SIP_404 | Kiểm tra quyền agent, số đích và tuyến gọi trên tổng đài |

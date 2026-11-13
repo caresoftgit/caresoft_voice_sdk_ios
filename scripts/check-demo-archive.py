@@ -8,7 +8,7 @@ app = archive / 'Products' / metadata['ApplicationPath']
 info = plistlib.loads((app / 'Info.plist').read_bytes())
 assert info.get('CFBundleIconName') == 'AppIcon', 'Missing CFBundleIconName'
 assert info.get('VoicePushEnvironment') == 'production', 'TestFlight voice push environment must be production'
-for key in ['NSMicrophoneUsageDescription']:
+for key in ['NSMicrophoneUsageDescription', 'NSCameraUsageDescription']:
     assert isinstance(info.get(key), str) and info[key].strip(), f'Missing purpose string: {key}'
 for key in ['CFBundleIcons', 'CFBundleIcons~ipad']:
     assert info[key]['CFBundlePrimaryIcon']['CFBundleIconName'] == 'AppIcon', key
